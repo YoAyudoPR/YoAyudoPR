@@ -1,6 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using YouAyudoPR.Web.Domain.Entities;
+using Microsoft.Extensions.Configuration;
+using YoAyudoPR.Web.Application.Services;
+using YoAyudoPR.Web.Infrastructure.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddDbContext<railwayContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllersWithViews();
 
