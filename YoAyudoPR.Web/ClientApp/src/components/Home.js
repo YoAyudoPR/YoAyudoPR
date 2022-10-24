@@ -1,26 +1,75 @@
 import React, { Component } from 'react';
+import { Accordion } from 'react-bootstrap';
+import './Home.css';
 
 export class Home extends Component {
   static displayName = Home.name;
 
   render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <p>Welcome to your new single-page application, built with:</p>
-        <ul>
-          <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-          <li><a href='https://facebook.github.io/react/'>React</a> for client-side code</li>
-          <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-        </ul>
-        <p>To help you get started, we have also set up:</p>
-        <ul>
-          <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-          <li><strong>Development server integration</strong>. In development mode, the development server from <code>create-react-app</code> runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-          <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration produces minified, efficiently bundled JavaScript files.</li>
-        </ul>
-        <p>The <code>ClientApp</code> subdirectory is a standard React application based on the <code>create-react-app</code> template. If you open a command prompt in that directory, you can run <code>npm</code> commands such as <code>npm test</code> or <code>npm install</code>.</p>
-      </div>
+      return (
+          <><h1 className = "title" >Help Puerto Rico Community</h1>
+              <Accordion defaultActiveKey="0">
+              <Accordion.Item eventKey="0">
+                  <Accordion.Header>What is YoAyudoPR?</Accordion.Header>
+                  <Accordion.Body>
+                   The purpose of this project is to provide a website where high school students and college students may locate volunteer opportunities to broaden their community service experience. Allow local organizations to list their events and volunteer recruitment efforts as well.
+                  </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                  <Accordion.Header>Project Synopsis</Accordion.Header>
+                  <Accordion.Body>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat.
+                  </Accordion.Body>
+                  </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                    <Accordion.Header>Domain Model</Accordion.Header>
+                    <Accordion.Body>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="3">
+                      <Accordion.Header>Technical Process</Accordion.Header>
+                      <Accordion.Body>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                          aliquip ex ea commodo consequat.
+                      </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="4">
+                      <Accordion.Header>Project Plan</Accordion.Header>
+                      <Accordion.Body>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                          aliquip ex ea commodo consequat.
+                      </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="5">
+                      <Accordion.Header>Github Repository</Accordion.Header>
+                      <Accordion.Body>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                          aliquip ex ea commodo consequat.
+                      </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="6">
+                      <Accordion.Header>Product Demo & Website Coming Soon</Accordion.Header>
+                      <Accordion.Body>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                          aliquip ex ea commodo consequat.
+                      </Accordion.Body>
+                  </Accordion.Item>
+              </Accordion></>
     );
   }
 }
