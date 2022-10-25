@@ -9,6 +9,7 @@
     "jquery": "^3.6.0",
     "merge": "^2.1.1",
     "oidc-client": "^1.11.5",
+    "pspdfkit": "^2022.4.3",
     "react": "^18.1.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.1.0",

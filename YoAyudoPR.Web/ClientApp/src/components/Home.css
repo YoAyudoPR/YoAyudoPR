@@ -1,4 +1,17 @@
 ﻿.title {
     text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    color: white;
+
 }
+.containerAccordion{
+    margin-bottom: 2rem;
+    
+}
+.bg-pic{
+    background-color: rgb(13, 110, 253);
+    border-radius: 25px;
+}
+
 
