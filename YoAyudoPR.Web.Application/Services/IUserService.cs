@@ -11,6 +11,7 @@ namespace YoAyudoPR.Web.Application.Services
 {
     public interface IUserService
     {
+        Task<IEnumerable<UserResponse>> FindAll(Expression<Func<User, bool>> predicate, CancellationToken cancellationToken);
         Task<UserResponse> FirstByConditionAsync(Expression<Func<User, bool>> predicate, CancellationToken cancellationToken);
         Task Create(UserCreateRequest model, CancellationToken cancellationToken);
     }

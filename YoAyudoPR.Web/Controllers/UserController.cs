@@ -23,9 +23,11 @@ namespace YoAyudoPR.Web.Controllers
 
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get(CancellationToken cancellationToken)
         {
-            return new string[] { "value1", "value2" };
+            var users = await _userService.FindAll(user => user.Isdeleted == false, cancellationToken);
+            
+            return Ok(users);
         }
 
         // GET api/<UserController>/5

@@ -19,9 +19,9 @@ export class Home extends Component {
   render() {
     
       return (
-          <><div class="bg-pic">
+          <><div className="bg-pic">
           <h1 className = "title" >Help Puerto Rico Community</h1>
-          <div class="containerAccordion">
+              <div className="containerAccordion">
               <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="0">
                   <Accordion.Header>What is YoAyudoPR?</Accordion.Header>

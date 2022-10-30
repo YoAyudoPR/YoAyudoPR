@@ -17,7 +17,7 @@ export class FetchData extends Component {
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>Date</th>
+            <th>email</th>
             <th>Temp. (C)</th>
             <th>Temp. (F)</th>
             <th>Summary</th>
@@ -25,11 +25,11 @@ export class FetchData extends Component {
         </thead>
         <tbody>
           {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
+              <tr key={forecast.email}>
+              <td>{forecast.email}</td>
+              <td>{forecast.firstName}</td>
+              <td>{forecast.initial}</td>
+              <td>{forecast.lastName}</td>
             </tr>
           )}
         </tbody>
@@ -52,7 +52,7 @@ export class FetchData extends Component {
   }
 
   async populateWeatherData() {
-    const response = await fetch('weatherforecast');
+    const response = await fetch('api/user');
     const data = await response.json();
     this.setState({ forecasts: data, loading: false });
   }

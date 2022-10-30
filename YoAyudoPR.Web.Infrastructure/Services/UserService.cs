@@ -47,6 +47,24 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             await _userRepository.AddAndSaveAsync(user, cancellationToken);
         }
 
+        public async Task<IEnumerable<UserResponse>> FindAll(Expression<Func<User, bool>> predicate, CancellationToken cancellationToken)
+        {
+            var users = await _userRepository.FindAllAsync(predicate, cancellationToken);
+
+            var userList = users.Select(x => new UserResponse
+            {
+                FirstName = x.Firstname,
+                LastName = x.Lastname,
+                Initial = x.Initial,
+                SecondLastName = x.Secondlastname,
+                Email = x.Email,
+                ResetPassword = x.Resetpassword,
+                IsDeleted = x.Isdeleted
+            });
+
+            return userList;
+        }
+
         public async Task<UserResponse> FirstByConditionAsync(Expression<Func<User, bool>> predicate, CancellationToken cancellationToken)
         {
             var user = await _userRepository.FirstByConditionAsync(predicate, cancellationToken);
