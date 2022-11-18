@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,11 +9,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\YoAyudoPR.Web.Application\YoAyudoPR.Web.Application.csproj" />
-    <ProjectReference Include="..\YouAyudoPR.Web.Domain\YouAyudoPR.Web.Domain.csproj" />
+    <ProjectReference Include="..\YoAyudoPR.Web.Domain\YoAyudoPR.Web.Domain.csproj" />
   </ItemGroup>
 
 </Project>

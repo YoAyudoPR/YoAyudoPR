@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -30,7 +30,6 @@
   <ItemGroup>
     <ProjectReference Include="..\YoAyudoPR.Web.Application\YoAyudoPR.Web.Application.csproj" />
     <ProjectReference Include="..\YoAyudoPR.Web.Infrastructure\YoAyudoPR.Web.Infrastructure.csproj" />
-    <ProjectReference Include="..\YouAyudoPR.Web.Domain\YouAyudoPR.Web.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

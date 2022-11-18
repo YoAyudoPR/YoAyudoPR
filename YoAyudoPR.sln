@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoAyudoPR.Web", "YoAyudoPR.Web\YoAyudoPR.Web.csproj", "{4BEC4522-78D8-4271-AF63-6927A78BE630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoAyudoPR.Web.Infrastructure", "YoAyudoPR.Web.Infrastructure\YoAyudoPR.Web.Infrastructure.csproj", "{56A4F5A3-DB1A-4AD5-9A9F-812E0EC5D65D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoAyudoPR.Web.Infrastructure", "YoAyudoPR.Web.Infrastructure\YoAyudoPR.Web.Infrastructure.csproj", "{56A4F5A3-DB1A-4AD5-9A9F-812E0EC5D65D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouAyudoPR.Web.Domain", "YouAyudoPR.Web.Domain\YouAyudoPR.Web.Domain.csproj", "{B96E4CF5-C6FA-4A1A-8114-AA2B38BDB0BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoAyudoPR.Web.Application", "YoAyudoPR.Web.Application\YoAyudoPR.Web.Application.csproj", "{76A1BF9E-EBE9-4EBA-9D7C-71CB84BE9567}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoAyudoPR.Web.Application", "YoAyudoPR.Web.Application\YoAyudoPR.Web.Application.csproj", "{76A1BF9E-EBE9-4EBA-9D7C-71CB84BE9567}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoAyudoPR.Web.Domain", "YoAyudoPR.Web.Domain\YoAyudoPR.Web.Domain.csproj", "{D8A0C9ED-5274-4C8B-98EB-506A14DE7687}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{56A4F5A3-DB1A-4AD5-9A9F-812E0EC5D65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A4F5A3-DB1A-4AD5-9A9F-812E0EC5D65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A4F5A3-DB1A-4AD5-9A9F-812E0EC5D65D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B96E4CF5-C6FA-4A1A-8114-AA2B38BDB0BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B96E4CF5-C6FA-4A1A-8114-AA2B38BDB0BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B96E4CF5-C6FA-4A1A-8114-AA2B38BDB0BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B96E4CF5-C6FA-4A1A-8114-AA2B38BDB0BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76A1BF9E-EBE9-4EBA-9D7C-71CB84BE9567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76A1BF9E-EBE9-4EBA-9D7C-71CB84BE9567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76A1BF9E-EBE9-4EBA-9D7C-71CB84BE9567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76A1BF9E-EBE9-4EBA-9D7C-71CB84BE9567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A0C9ED-5274-4C8B-98EB-506A14DE7687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A0C9ED-5274-4C8B-98EB-506A14DE7687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A0C9ED-5274-4C8B-98EB-506A14DE7687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A0C9ED-5274-4C8B-98EB-506A14DE7687}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

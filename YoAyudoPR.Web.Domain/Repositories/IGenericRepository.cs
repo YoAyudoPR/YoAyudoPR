@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace YouAyudoPR.Web.Domain.Repositories
+namespace YoAyudoPR.Web.Domain.Repositories
 {
     public interface IGenericRepository<T> : IDisposable
     {

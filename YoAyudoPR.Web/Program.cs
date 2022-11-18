@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using YouAyudoPR.Web.Domain.Entities;
+using YoAyudoPR.Web.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using YoAyudoPR.Web.Application.Services;
 using YoAyudoPR.Web.Infrastructure.Services;

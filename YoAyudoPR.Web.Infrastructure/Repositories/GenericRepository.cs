@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Linq.Expressions;
-using YouAyudoPR.Web.Domain.Repositories;
+using YoAyudoPR.Web.Domain.Repositories;
 using YoAyudoPR.Web.Infrastructure.Extensions;
 
 namespace YoAyudoPR.Web.Infrastructure.Repositories
