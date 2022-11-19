@@ -1,6 +1,6 @@
 import { Home } from "./components/Home";
 import { Login } from "./components/Login";
-import { Register } from "./components/Register";
+import Register, {WithNavigate} from "./components/Register";
 
 const AppRoutes = [
   {
@@ -13,8 +13,8 @@ const AppRoutes = [
   },
   {
     path: '/Register',
-    element: <Register />
-  }
+    element: <WithNavigate /> 
+  },
 ];
 
 export default AppRoutes;
