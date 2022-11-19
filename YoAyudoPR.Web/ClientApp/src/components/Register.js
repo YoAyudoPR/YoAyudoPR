@@ -2,7 +2,7 @@
 import { useNavigate } from 'react-router-dom'
 import Axios from 'axios';
 
-export function WithNavigate(props) {
+export function RegNavigate(props) {
     return (<Register navigate={useNavigate()}></Register>)
 }
 
@@ -20,23 +20,28 @@ export default class Register extends Component {
         this.setState({ [field]: event.target.value });
     }
 
-    render() { 
-        
-        const register = () => {
-            Axios.post("api/user/create", {
-                email: this.state.Email,
-                firstname: this.state.Firstname,
-                initial: this.state.Initial,
-                lastname: this.state.Lastname,
-                secondlastname: this.state.Secondlastname,
-                phone: this.state.Phone,
-                password: this.state.Password,
-            }).then((response) => {
-                console.log(response.data);
-            });
-            this.props.navigate('/Login');
-        }
+    register = event => {
+        event.preventDefault();
 
+        Axios.post("api/user/create", {
+            email: this.state.Email,
+            firstname: this.state.Firstname,
+            initial: this.state.Initial,
+            lastname: this.state.Lastname,
+            secondlastname: this.state.Secondlastname,
+            phone: this.state.Phone,
+            password: this.state.Password,
+        }).then((response) => {
+            console.log(response.data);
+            this.props.navigate('/Login');
+        }).catch((error) => {
+            if (error.response) {
+                console.log(error.response.data);
+            }
+        });
+    }
+
+    render() { 
         return (
             <form class="row g-3">
                 <div class="col-md-6">
@@ -68,7 +73,7 @@ export default class Register extends Component {
                     <input type="tel" class="form-control" value={this.state.Phone} onChange={(e) => this.handleChange(e, "Phone")}></input>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" onClick={register}>Sign Up</button>  
+                    <button type="submit" class="btn btn-primary" onClick={this.register}>Sign Up</button>  
                 </div>
             </form>
         );

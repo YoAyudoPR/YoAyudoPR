@@ -51,7 +51,7 @@ namespace YoAyudoPR.Web.Controllers
                 {
                     return NotFound();
                 } 
-                else if (user.Isdeleted == false)
+                else if (user.Isdeleted == true)
                 {
                     return NotFound();
                 }
