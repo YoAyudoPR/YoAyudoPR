@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import './Home.css';
+import './Landing.css';
 
 // export const App= () => {
 //     const {embededURL} = useState('https://drive.google.com/file/d/1gx7KD6KqISXeojBkDzIMOjiAMysTSv7a/preview');
@@ -13,8 +13,8 @@ import './Home.css';
 // }
 // export default App
 
-export class Home extends Component {
-  static displayName = Home.name;
+export class Landing extends Component {
+  static displayName = Landing.name;
 
   render() {
     
