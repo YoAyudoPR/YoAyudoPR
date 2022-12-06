@@ -1,6 +1,7 @@
 import { Landing } from "./components/Landing";
 import Login, { LogNavigate } from "./components/Login";
-import Register, {RegNavigate} from "./components/Register";
+import Register, { RegNavigate } from "./components/Register";
+import { Home } from "./components/Home";
 
 const AppRoutes = [
   {
@@ -9,11 +10,15 @@ const AppRoutes = [
   },
   {
     path: '/Login',
-      element: <LogNavigate />
+    element: <LogNavigate />
   },
   {
     path: '/Register',
     element: <RegNavigate /> 
+  },
+  {
+    path: '/Home',
+    element: <Home />
   },
 ];
 
