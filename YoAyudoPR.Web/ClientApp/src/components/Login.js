@@ -29,7 +29,7 @@ export default class Login extends Component {
             password: this.state.Password,
         }).then((response) => {
             console.log(response.data);
-            this.props.navigate('/');
+            this.props.navigate('/Home');
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
