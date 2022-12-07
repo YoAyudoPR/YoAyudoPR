@@ -1,0 +1,37 @@
+﻿
+
+.center{
+    text-align:center;
+    margin-bottom:1rem;
+    font-weight:900;
+}
+h1 {
+    font-size:4rem;
+}
+
+.container-properties {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: white;
+    border: 1px solid red;
+    display: flex;
+    width: 100%;
+    max-width: 60%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.form {
+    
+    width:100%;
+}
+
+.img {
+    height:100vh;
+    background: url('image2.png');
+    background-repeat:no-repeat;
+}
+.container { /*MOVE THIS TO MAIN PAGE!*/
+    width:100%;
+   
+}
