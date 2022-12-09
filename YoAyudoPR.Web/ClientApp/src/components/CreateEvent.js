@@ -27,7 +27,7 @@ export default class CreateEvent extends Component {
 
         return (<>
             <div className="img">
-                <h1 class="center">Register the event bellow!</h1>
+                <h1 class="CE-center CE-h1">Register the event bellow!</h1>
                 <Container className="container-properties">
                             <Form className="form">        
                                 <Row className="mb-3">
@@ -63,7 +63,7 @@ export default class CreateEvent extends Component {
                                         <Form.Control type="text" placeholder="How many can attend?" />
                                     </Form.Group>
                                 </Row>
-                                <Button variant="primary">Submit Event</Button>
+                               <Button className="mt-3" variant="primary">Submit Event</Button>
                          </Form>
                 </Container>
             </div>
