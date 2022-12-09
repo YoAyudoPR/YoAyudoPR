@@ -24,16 +24,16 @@ const AppRoutes = [
     element: <EventDetailsNavigate />
   },
   {
-    path: '/CreateEvent',
+     path: '/CreateEvent',
      element: <CreateEventNavigate />
     },
    {
-    path: '/Profile',
-    element: <ProfileNavigate />
+     path: '/Profile',
+     element: <ProfileNavigate />
    },
   {
-    path: '/Home',
-    element: <Home />
+     path: '/Home',
+     element: <Home />
   },
 ];
 
