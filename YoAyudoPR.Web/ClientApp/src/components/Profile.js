@@ -6,8 +6,6 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Axios from 'axios';
 import Container from 'react-bootstrap/Container';
-//import './CreateEvent.css';
-
 
 export function ProfileNavigate(props) {
     return (<Profile navigate={useNavigate()}></Profile>)
@@ -15,7 +13,12 @@ export function ProfileNavigate(props) {
 
 
 export default class Profile extends Component {
+    static displayName = Profile.name;
 
+    constructor(props) {
+        super(props);
+        /*his.state = { Data: [] };*/
+    }
 
     handleChange(event, field) {
         this.setState({ [field]: event.target.value });
@@ -23,8 +26,6 @@ export default class Profile extends Component {
 
 
     render() {
-
-    
         return (<>
 
             <h1 className="P-h1">Account Profile</h1>

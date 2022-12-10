@@ -2,7 +2,7 @@ import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import { Landing } from "./components/Landing";
 import Login, { LogNavigate, LogInStatus } from "./components/Login";
 import Register, { RegNavigate } from "./components/Register";
-import { Home, HomeNavigate } from "./components/Home";
+import { Home, HomeUserDetails } from "./components/Home";
 import EventDetails, { EventDetailsNavigate } from "./components/EventDetails"; 
 import CreateEvent, { CreateEventNavigate } from "./components/CreateEvent";
 import Profile, { ProfileNavigate } from "./components/Profile";
@@ -38,7 +38,7 @@ const AppRoutes = [
   },
   {
      path: '/Home',
-     element: <HomeNavigate/> /*<ProtectedRoute auth={{ isAuthenticated: { LogInStatus } }}> <Home/></ProtectedRoute>*/
+     element: <HomeUserDetails /> /*<ProtectedRoute auth={{ isAuthenticated: { LogInStatus } }}> <Home/></ProtectedRoute>*/
   },
 ];
 

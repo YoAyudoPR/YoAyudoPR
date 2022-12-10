@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Category } from './Category'
+import { Category, CategoryDropdown } from './Category'
 import Axios from 'axios';
 import './CreateEvent.css';
 
 export function CreateEventNavigate(props) {
+
+
     return (<CreateEvent navigate={useNavigate()}></CreateEvent>)
 }
 
@@ -58,7 +60,7 @@ export default class CreateEvent extends Component {
                                 <Form.Control type="text" placeholder="Event name" />
                             </Form.Group>
                             <Form.Group xs={6} as={Col} controlId="formCapacity">
-                                <Category />
+                                <CategoryDropdown />
                             </Form.Group>
                         </Row>
 

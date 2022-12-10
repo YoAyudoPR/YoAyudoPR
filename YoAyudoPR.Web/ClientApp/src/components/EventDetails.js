@@ -1,69 +1,61 @@
-
 import React, { Component } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
-import Axios from 'axios';
-
-
-
-
+import { Button, Col, Row, Card, } from 'react-bootstrap/';
+import './CreateEvent.css';
 
 export function EventDetailsNavigate(props) {
-    return (<EventDetails navigate={useNavigate()}></EventDetails>)
+    const event_info = JSON.parse(localStorage.getItem("event_data"))
+    return (<EventDetails info={event_info}  navigate={useNavigate()} ></EventDetails>)
 }
 
 export default class EventDetails extends Component {
-    
+    static displayName = EventDetails.name;
 
-    handleChange(event, field) {
-        this.setState({ [field]: event.target.value });
+    constructor(props) {
+        super(props);
     }
 
+    goHome = (event) => {
+        this.props.navigate("/Home");
+    }
 
     render() {
+        let startdate = new Date(this.props.info.startdate).toUTCString();
+        let enddate = new Date(this.props.info.enddate).toUTCString();
         return (<>
             <div className="ED-bg-img">
-                    <div className="mb-4 pt-4 ED-container">
-
+                <div className="mb-4 pt-4 ED-container">
                 <Row >
-                    <Col xs={ 5 }>
+                    <Col xs={5}>
                         <img className="ED-img" src="../images/beach2.jpg" alt="Event Picture" />
                     </Col>
                     <Col xs={4} className="ED-info-column">
                         <Card className="p-4" style={{ width: '18rem' }}>
-
                         <Row>
                             <h1>Event Details</h1>
                             <Col>
                                 <h5>Name</h5>
-                                <p>*EVENT NAME HERE*</p>
+                                <p>{this.props.info.name}</p>
                             </Col>
                         </Row>
-
-                       
                         <Row>
                             <Col>
                                 <h5>Timeline</h5>
-                                <p className="ED-make-block">*EVENT START DATE*</p>
-                                <p>*EVENT END DATE*</p>
+                                <p className="ED-make-block">{startdate}</p>
+                                <p>{enddate}</p>
                             </Col>
                         </Row>
                         </Card>
                     </Col>
                 </Row>
-
                 <Row className="mt-4 mb-4">
                     <Col>
                         <h5>Desciption</h5>
-                        <p className="ED-make-block">*It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).*</p>
+                        <p className="ED-make-block">{this.props.info.description}</p>
                     </Col>
                 </Row>
-
                 </div>
+                <Button variant="primary" onClick={this.goHome} >Go Home</Button>
             </div>
         </>);
     }

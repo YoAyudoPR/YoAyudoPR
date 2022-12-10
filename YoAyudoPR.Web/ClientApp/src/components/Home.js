@@ -1,11 +1,23 @@
-﻿import React, { Component } from 'react';
+﻿import React, { Component, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Button, Carousel } from 'react-bootstrap';
-import { EventsCards } from "../components/EventsCards.js";
+import { Events, EventsCards } from "./Events.js";
+import Axios from 'axios';
 import './Home.css';
 
-export function HomeNavigate() {
-    return (<Home navigate={useNavigate()}></Home>)
+export function HomeUserDetails() {
+    const [Data, setData] = useState([]);
+
+    useEffect(() => {
+        const user_id = localStorage.getItem('guid')
+        Axios.get(`api/user/get?guid=${user_id}`, {
+        }).then((response) => {
+            console.log(response);
+            setData(response.data)
+        });
+    }, []);
+
+    return (<Home info={Data} navigate={useNavigate()}></Home>)
 }
 
 export class Home extends Component {
@@ -13,6 +25,7 @@ export class Home extends Component {
 
     constructor(props) {
         super(props);
+        this.state = { Data: [] };
     }
 
     logout = (event) => {
@@ -24,12 +37,6 @@ export class Home extends Component {
     render() {
         return (
             <body>
-                {/*Testing*/}
-                <div>
-                    <h1>User Guid: {String(localStorage.getItem('guid'))} </h1>
-                    <Button variant="primary" value={false} onClick={this.logout}>Log out</Button>
-                </div>
-                {/*++++++++*/}
                 <div>
                     <Carousel>
                         <Carousel.Item>
@@ -55,9 +62,15 @@ export class Home extends Component {
                         </Carousel.Item>
                     </Carousel>
                 </div>
+                {/*Testing*/}
+                <div>
+                    <h1>Welcome: {String(this.props.info.firstName)} </h1>
+                    <Button variant="primary" value={false} onClick={this.logout}>Log out</Button>
+                </div>
+                {/*++++++++*/}
                 <div>
                     <h1>Events and Activities</h1>
-                    <EventsCards/>
+                    <EventsCards />
                 </div>
             </body>
         );

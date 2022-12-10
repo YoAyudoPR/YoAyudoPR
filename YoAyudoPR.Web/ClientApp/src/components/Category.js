@@ -1,7 +1,23 @@
-﻿import React, { Component, useState } from 'react';
+﻿import React, { Component, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { Dropdown, Form } from 'react-bootstrap';
 import Axios from 'axios';
 import './Home.css';
+
+
+export function CategoryDropdown() {
+    const [Data, setData] = useState([]);
+
+    useEffect(() => {
+        Axios.get(`api/event/getcategories`, {
+        }).then((response) => {
+            console.log(response);
+            setData(response.data)
+        });
+    }, []);
+
+    return (<Category info={Data} navigate={useNavigate()}></Category>)
+}
 
 export class Category extends Component {
     static displayName = Category.name;
@@ -67,17 +83,15 @@ export class Category extends Component {
         );
 
         return (
-            <div>
-                <Dropdown>
-                    <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">SELECT CATEGORY</Dropdown.Toggle>
-                    <Dropdown.Menu as={CustomMenu}>
-                        {/*For Loop Needed*/}
-                        <Dropdown.Item eventKey="1">Red</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Orange</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </div>
-        );
+            <Dropdown>
+                <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">SELECT CATEGORY</Dropdown.Toggle>
+                <Dropdown.Menu as={CustomMenu}>
+                    {this.props.info.map((value) => (
+                        <Dropdown.Item key={value.categoryId} value={value}>{value.categoryName}</Dropdown.Item>
+                    ))}
+                </Dropdown.Menu>
+            </Dropdown>
+        )
+
     }
 }
