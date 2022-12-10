@@ -10,6 +10,8 @@ namespace YoAyudoPR.Web.Application.Dtos
 {
     public class EventSearchRequest
     {
+        [Required]
+        public string? Name { get; set; }
         public int? CategoryId { get; set; }
     }
 
@@ -17,6 +19,9 @@ namespace YoAyudoPR.Web.Application.Dtos
     {
         [Required]
         public Guid OrganizationGuid { get; set; }
+
+        [Required]
+        public string Name { get; set; } = null!;
 
         [MaxLength(500)]
         public string? Description { get; set; }
@@ -38,6 +43,9 @@ namespace YoAyudoPR.Web.Application.Dtos
     public class EventUpdateRequest
     {
         public Guid Guid { get; set; }
+
+        [Required]
+        public string Name { get; set; } = null!;
 
         [MaxLength(500)]
         public string? Description { get; set; }
@@ -61,6 +69,7 @@ namespace YoAyudoPR.Web.Application.Dtos
         public Guid Guid { get; set; }
         public Guid OrganizationGuid { get; set; }
         public string? OrganizationName { get; set; }
+        public string? Name { get; set; }
         public string? Description { get; set; }
         public DateTime? Startdate { get; set; }
         public DateTime? Enddate { get; set; }
@@ -73,6 +82,7 @@ namespace YoAyudoPR.Web.Application.Dtos
     public class EventListResponse
     {
         public Guid Guid { get; set; }
+        public string Name { get; set; }
         public string? OrganizationName { get; set; }
         public DateTime? Startdate { get; set; }
         public DateTime? Enddate { get; set; }

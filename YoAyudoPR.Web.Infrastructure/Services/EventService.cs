@@ -25,11 +25,12 @@ namespace YoAyudoPR.Web.Infrastructure.Services
 
         public async Task Create(EventCreateRequest model, CancellationToken cancellationToken)
         {
-            var organization = await _organizationRepository.FindByGuidAsync(model.OrganizationGuid, cancellationToken);
+            var organization = await _organizationRepository.FirstByConditionAsync(x => x.Guid == model.OrganizationGuid, cancellationToken);
 
             var newEvent = new Event
             {
                 Guid = Guid.NewGuid(),
+                Name = model.Name,
                 Description = model.Description,
                 Createdat = DateTime.Now,
                 Startdate = model.Startdate,
@@ -38,7 +39,9 @@ namespace YoAyudoPR.Web.Infrastructure.Services
                 Websiteurl = model.Websiteurl,
                 Address = model.Address,
                 OrganizationId = organization.Id,
-                CategoryId = model.CategoryId
+                CategoryId = model.CategoryId,
+                Isactive = true,
+                Isdeleted = false
             };
 
             await _eventRepository.AddAndSaveAsync(newEvent, cancellationToken);
@@ -60,6 +63,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             var eventList = events.Select(x => new EventListResponse
             {
                 Guid = x.Guid.GetValueOrDefault(),
+                Name = x.Name,
                 OrganizationName = x.Organization.Name,
                 Startdate = x.Startdate,
                 Enddate = x.Enddate,
@@ -81,6 +85,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             var eventInfo = new EventResponse
             {
                 Guid = dbEvent.Guid.GetValueOrDefault(),
+                Name = dbEvent.Name,
                 OrganizationGuid = dbEvent.Organization.Guid.GetValueOrDefault(),
                 OrganizationName = dbEvent.Organization.Name,
                 Startdate = dbEvent.Startdate,

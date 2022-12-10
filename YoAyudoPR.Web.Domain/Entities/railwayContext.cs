@@ -105,13 +105,12 @@ namespace YoAyudoPR.Web.Domain.Entities
 
                 entity.Property(e => e.Isactive)
                     .IsRequired()
-                    .HasColumnType("bit(1)")
-                    .HasColumnName("isactive");
+                    .HasColumnName("isactive")
+                    .HasDefaultValueSql("true");
 
-                entity.Property(e => e.Isdeleted)
-                    .IsRequired()
-                    .HasColumnType("bit(1)")
-                    .HasColumnName("isdeleted");
+                entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
+
+                entity.Property(e => e.Name).HasColumnName("name");
 
                 entity.Property(e => e.OrganizationId).HasColumnName("organization_id");
 

@@ -7,16 +7,19 @@ namespace YoAyudoPR.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventController : Controller
+    public class EventController : ControllerBase
     {
         private readonly ILogger<EventController>? _logger;
         private readonly IEventService _eventService;
+        private readonly ICategoryService _categoryService;
         public EventController(
             ILogger<EventController> logger,
-            IEventService eventService)
+            IEventService eventService,
+            ICategoryService categoryService)
         {
             _logger = logger;
             _eventService = eventService;
+            _categoryService = categoryService;
         }
 
         [HttpGet("searchevents")]
@@ -27,7 +30,7 @@ namespace YoAyudoPR.Web.Controllers
         {
             var events = await _eventService.FindAll(x => true, cancellationToken);
 
-            return View(events);
+            return Ok(events);
         }
 
         [HttpGet("get")]
@@ -109,6 +112,16 @@ namespace YoAyudoPR.Web.Controllers
 
                 return Problem();
             }
+        }
+
+        [HttpGet("getcategories")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetCategories(CancellationToken cancellationToken)
+        {
+            var categories = await _categoryService.FindAll(cancellationToken);
+            
+            return Ok(categories);
         }
     }
 }

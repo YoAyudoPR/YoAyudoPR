@@ -57,13 +57,15 @@ namespace YoAyudoPR.Web.Controllers
                 }
             }
 
-            string secret = _configuration.GetValue<string>("JwtSecret");
+            //string secret = _configuration.GetValue<string>("JwtSecret");
 
-            var token = await _userService.GenerateJWT(user, secret, cancellationToken);
+            //var token = await _userService.GenerateJWT(user, secret, cancellationToken);
 
-            _logger?.LogInformation($"Starting to authenticate user: {model.Email}");
+            //_logger?.LogInformation($"Starting to authenticate user: {model.Email}");
 
-            return Ok(new { token = token });
+            //return Ok(new { token = token });
+
+            return Ok(new { userGuid = user.Guid });
         }
 
         [HttpGet("searchusers")]

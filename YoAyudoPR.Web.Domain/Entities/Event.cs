@@ -2,7 +2,6 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace YoAyudoPR.Web.Domain.Entities
 {
@@ -20,12 +19,13 @@ namespace YoAyudoPR.Web.Domain.Entities
         public DateTime? Enddate { get; set; }
         public int? Capacity { get; set; }
         public DateTime? Createdat { get; set; }
-        public BitArray Isactive { get; set; }
-        public BitArray Isdeleted { get; set; }
         public string Websiteurl { get; set; }
         public string Address { get; set; }
         public int CategoryId { get; set; }
         public Guid? Guid { get; set; }
+        public string Name { get; set; }
+        public bool Isdeleted { get; set; }
+        public bool? Isactive { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Organization Organization { get; set; }

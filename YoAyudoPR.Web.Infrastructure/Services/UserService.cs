@@ -90,13 +90,16 @@ namespace YoAyudoPR.Web.Infrastructure.Services
 
             var userList = users.Select(x => new UserResponse
             {
+                Guid = x.Guid.GetValueOrDefault(),
                 FirstName = x.Firstname,
                 LastName = x.Lastname,
                 Initial = x.Initial,
                 SecondLastName = x.Secondlastname,
                 Email = x.Email,
+                Phone = x.Phone,
                 ResetPassword = x.Resetpassword,
-                IsDeleted = x.Isdeleted
+                IsDeleted = x.Isdeleted,
+                IsActive = x.Isactive,
             });
 
             return userList;
