@@ -1,5 +1,5 @@
 ﻿
-
+/*Create Event CSS Bellow!*/
 .CE-center{
     text-align:center;
     margin-bottom:1rem;
@@ -37,6 +37,9 @@
    
 }
 
+
+
+
 /*Profile CSS Bellow!*/
 
 .P-container {
@@ -67,12 +70,36 @@
     color: gray;
 }
 
+
+
+
 /*Event Details CSS Bellow!*/
 
 .ED-container {
-    margin-left: 35%;
+    margin-left: 15%;
+    width: 70%;
+}
+
+.ED-bg-img {
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url(image2.png); /*S+ GOD TIER CODE!*/
+    height: 100vh;
 }
 
 .ED-make-block {
     display: block;
+}
+
+.ED-img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    height: 20rem;
+}
+.ED-border {
+    border-right:2px groove gray;
+}
+
+.ED-info-column {
+    margin-left: 20%;
+    margin-top: 2%;
 }
