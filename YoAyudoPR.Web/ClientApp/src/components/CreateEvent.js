@@ -17,7 +17,7 @@ export default class CreateEvent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {organizationId: 0 , description: '', startDate: 0, endDate: 0, Capacity: 0, createdDate: 0};
+        this.state = {organizationID: 0 , description: '', startDate: '', endDate: '', capacity: 0, createdDate: '', website: '', address: '', categoryID: 0};
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -28,14 +28,17 @@ export default class CreateEvent extends Component {
     createEvents = (event) => {
         event.preventDefault();
         Axios.get("api/event/create", {
-            organization_id: this.state.organizationId,
+            organization_id: this.state.organizationID,
             description: this.state.description,
             startdate: this.state.startDate,
             enddate: this.state.endDate,
-            capacity: this.state.Capacity,
+            capacity: this.state.capacity,
             createdat: this.state.createdDate,
             isactive: true,
             isdeleted: false,
+            websiteurl: this.state.website,
+            address: this.state.address,
+            category_id: this.state.categoryID,
         }).then((response) => {
             console.log(response.data);
         }).catch((error) => {
@@ -51,42 +54,53 @@ export default class CreateEvent extends Component {
             <div className="img">
                 <h1 class="CE-center CE-h1">Register the event bellow!</h1>
                 <Container className="container-properties">
-                            <Form className="form">        
-                                <Row className="mb-3">
-                                     <Form.Group xs={6} as={Col} controlId="formGridEmail">
-                                        <Form.Label>Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Event name" />
-                                    </Form.Group>
-                                </Row>
+                    <Form className="form">        
+                        <Row className="mb-3">
+                            <Form.Group xs={6} as={Col} controlId="formGridEmail">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control type="text" placeholder="Event name" />
+                            </Form.Group>
+                        </Row>
 
-                                <Row className="mb-3">
-                                        <Form.Group xs={6} as={Col} controlId="formGridPassword">
-                                        <Form.Label>Description</Form.Label>
-                                    <Form.Control as="textarea" placeholder="Describe your event" />
-                                    </Form.Group>
-                                 </Row>
+                        <Row className="mb-3">
+                            <Form.Group xs={6} as={Col} controlId="formGridPassword">
+                                <Form.Label>Description</Form.Label>
+                                <Form.Control as="textarea" placeholder="Describe your event" value={this.state.description } />
+                            </Form.Group>
+                        </Row>
 
-                                <Row className="mb-3">
-                                        <Form.Group xs={3} as={Col} controlId="formGridAddress1">
-                                        <Form.Label>Start Date</Form.Label>
-                                        <Form.Control type="date" placeholder="" />
-                                    </Form.Group>
+                        <Row className="mb-3">
+                            <Form.Group xs={3} as={Col} controlId="formGridAddress1">
+                                <Form.Label>Start Date</Form.Label>
+                                <Form.Control type="date" placeholder="" />
+                            </Form.Group>
 
-                                    <Form.Group xs={3} as={Col} controlId="formGridAddress2">
-                                        <Form.Label>End Date</Form.Label>
-                                        <Form.Control type="date" placeholder="" />
-                                    </Form.Group>
-                    
-                                </Row>
+                            <Form.Group xs={3} as={Col} controlId="formGridAddress2">
+                                <Form.Label>End Date</Form.Label>
+                                <Form.Control type="date" placeholder="" />
+                            </Form.Group>
+                        </Row>
 
-                               <Row className="mb-3">
-                                     <Form.Group xs={4} as={Col} controlId="formCapacity">
-                                        <Form.Label>Capacity</Form.Label>
-                                        <Form.Control type="text" placeholder="How many can attend?" />
-                                    </Form.Group>
-                                </Row>
-                               <Button className="mt-3" variant="primary">Submit Event</Button>
-                         </Form>
+                        <Row className="mb-3">
+                            <Form.Group xs={4} as={Col} controlId="formCapacity">
+                                <Form.Label>Capacity</Form.Label>
+                                <Form.Control type="text" placeholder="How many can attend?" />
+                            </Form.Group>
+                            <Form.Group xs={4} as={Col} controlId="formCapacity">
+                                <Form.Label>Website Url</Form.Label>
+                                <Form.Control type="text" placeholder="Optional" />
+                            </Form.Group>
+                        </Row>
+
+                        <Row className="mb-3">
+                            <Form.Group xs={6} as={Col} controlId="formCapacity">
+                                <Form.Label>Address</Form.Label>
+                                <Form.Control as="textarea" placeholder="Where is the event?" />
+                            </Form.Group>
+                        </Row>
+
+                        <Button className="mt-3" variant="primary">Submit Event</Button>
+                    </Form>
                 </Container>
             </div>
          </>);

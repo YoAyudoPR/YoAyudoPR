@@ -8,6 +8,7 @@ export class EventsCards extends Component {
 
     constructor(props) {
         super(props);
+        this.state = { eventName: '', description: '', startDate: 0, endDate: 0, capacity: 0};
     }
 
     getEvents = (event) => {
