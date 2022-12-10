@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -9,20 +8,43 @@ import Row from 'react-bootstrap/Row';
 import Axios from 'axios';
 import './CreateEvent.css';
 
-
 export function CreateEventNavigate(props) {
     return (<CreateEvent navigate={useNavigate()}></CreateEvent>)
 }
 
-
-
 export default class CreateEvent extends Component {
+    static displayName = CreateEvent.name;
 
+    constructor(props) {
+        super(props);
+        this.state = {organizationId: 0 , description: '', startDate: 0, endDate: 0, Capacity: 0, createdDate: 0};
+        this.handleChange = this.handleChange.bind(this);
+    }
 
     handleChange(event, field) {
         this.setState({ [field]: event.target.value });
     }
 
+    createEvents = (event) => {
+        event.preventDefault();
+        Axios.get("api/event/create", {
+            organization_id: this.state.organizationId,
+            description: this.state.description,
+            startdate: this.state.startDate,
+            enddate: this.state.endDate,
+            capacity: this.state.Capacity,
+            createdat: this.state.createdDate,
+            isactive: true,
+            isdeleted: false,
+        }).then((response) => {
+            console.log(response.data);
+        }).catch((error) => {
+            if (error.response) {
+                console.log(error.response.data);
+                alert(`Error! ${error.message}`);
+            }
+        });
+    }
     render() {
 
         return (<>

@@ -6,9 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Axios from 'axios';
-import './EventDetails.css';
-
-
+/*import './EventDetails.css';*/
 
 
 export function EventDetailsNavigate(props) {
@@ -22,7 +20,6 @@ export default class EventDetails extends Component {
         this.setState({ [field]: event.target.value });
     }
 
-    
 
     render() {
         return (<>
