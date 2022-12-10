@@ -23,7 +23,6 @@ export default class EventDetails extends Component {
         this.setState({ [field]: event.target.value });
     }
 
-    
 
     render() {
         return (<>

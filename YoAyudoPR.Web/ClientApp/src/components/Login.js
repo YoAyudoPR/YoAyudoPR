@@ -1,40 +1,46 @@
 ﻿import React, { Component } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Axios from 'axios';
-/*import { } from 'react-bootstrap';*/
 
-export function LogNavigate(props) {
+export function LogNavigate() {
     return (<Login navigate={useNavigate()}></Login>)
 }
+
+export var LogInStatus;
 
 export default class Login extends Component {
     static displayName = Login.name;
 
     constructor(props) {
         super(props);
-        this.state = { Email: '', Password: '' };
-
+        this.state = { Email: '', Password: ''};
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event, field) {
+    handleChange = (event, field) => {
         this.setState({ [field]: event.target.value });
     }
 
-    login = event => {
+    login = (event) => {
         event.preventDefault();
-
         Axios.post("api/user/auth", {
             email: this.state.Email,
             password: this.state.Password,
         }).then((response) => {
             console.log(response.data);
-            this.props.navigate('/Home');
+            LogInStatus = true;
+            this.props.navigate("/Home")
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
+                alert(`Error! ${error.message}`);
             }
         });
+    }
+
+    logout = (event) => {
+        event.preventDefault();
+        LogInStatus = false;
     }
 
     render() {
@@ -54,6 +60,7 @@ export default class Login extends Component {
                     <a href='/Register'>Register</a>
                 </div>
                 <button type="submit" class="btn btn-primary" onClick={this.login}>Login</button>
-            </form>);
+            </form>
+        );
     }
 }

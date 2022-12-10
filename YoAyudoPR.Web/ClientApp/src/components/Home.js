@@ -1,13 +1,25 @@
-﻿import React, { Component, useState } from 'react';
+﻿import React, { Component } from 'react';
 import { Card, Button, Carousel } from 'react-bootstrap';
+import Login, { LogNavigate, LogInStatus } from "../components/Login";
+import { EventsCards } from "../components/EventsCards.js";
 import './Home.css';
 
 export class Home extends Component {
     static displayName = Home.name;
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
-        return (<>
+        return (
             <body>
+                {/*Testing*/}
+                <div>
+                    <h1>Status: {String(LogInStatus)} </h1>
+                    <Button variant="primary" value={false} onClick={LogInStatus}>Log out</Button>
+                </div>
+                {/*++++++++*/}
                 <div>
                     <Carousel>
                         <Carousel.Item>
@@ -35,19 +47,9 @@ export class Home extends Component {
                 </div>
                 <div>
                     <h1>Events and Activities</h1>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="../images/Events/beach.jpg" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
+                    <EventsCards/>
                 </div>
             </body>
-        </>);
+        );
     }
 }
