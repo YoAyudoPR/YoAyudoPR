@@ -28,7 +28,7 @@ export default class Login extends Component {
             password: this.state.Password,
         }).then((response) => {
             console.log(response.data);
-            LogInStatus = true;
+            localStorage.setItem('guid', response.data.userGuid)
             this.props.navigate("/Home")
         }).catch((error) => {
             if (error.response) {
@@ -36,11 +36,6 @@ export default class Login extends Component {
                 alert(`Error! ${error.message}`);
             }
         });
-    }
-
-    logout = (event) => {
-        event.preventDefault();
-        LogInStatus = false;
     }
 
     render() {

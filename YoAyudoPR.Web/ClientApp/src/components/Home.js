@@ -1,8 +1,12 @@
 ﻿import React, { Component } from 'react';
-import { Card, Button, Carousel } from 'react-bootstrap';
-import Login, { LogNavigate, LogInStatus } from "../components/Login";
+import { useNavigate } from 'react-router-dom'
+import { Button, Carousel } from 'react-bootstrap';
 import { EventsCards } from "../components/EventsCards.js";
 import './Home.css';
+
+export function HomeNavigate() {
+    return (<Home navigate={useNavigate()}></Home>)
+}
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -11,13 +15,19 @@ export class Home extends Component {
         super(props);
     }
 
+    logout = (event) => {
+        event.preventDefault();
+        localStorage.clear();
+        this.props.navigate("/Login")
+    }
+
     render() {
         return (
             <body>
                 {/*Testing*/}
                 <div>
-                    <h1>Status: {String(LogInStatus)} </h1>
-                    <Button variant="primary" value={false} onClick={LogInStatus}>Log out</Button>
+                    <h1>User Guid: {String(localStorage.getItem('guid'))} </h1>
+                    <Button variant="primary" value={false} onClick={this.logout}>Log out</Button>
                 </div>
                 {/*++++++++*/}
                 <div>
