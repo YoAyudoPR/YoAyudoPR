@@ -6,6 +6,8 @@ import { Home, HomeUserDetails } from "./components/Home";
 import EventDetails, { EventDetailsNavigate } from "./components/EventDetails"; 
 import CreateEvent, { CreateEventNavigate } from "./components/CreateEvent";
 import Profile, { ProfileNavigate } from "./components/Profile";
+import CreateOrganization, { CreateOrganizationNavigate } from "./components/CreateOrganization";
+import OrganizationProfile, { OrganizationProfileNavigate } from "./components/OrganizationProfile";
 
 const ProtectedRoute = ({ auth: { isAuthenticated }, children }) => {
     return isAuthenticated ? children : <Navigate to="/Login" />;
@@ -39,7 +41,15 @@ const AppRoutes = [
   {
      path: '/Home',
      element: <HomeUserDetails /> /*<ProtectedRoute auth={{ isAuthenticated: { LogInStatus } }}> <Home/></ProtectedRoute>*/
-  },
+   },
+  {
+    path: '/CreateOrganization',
+    element: <CreateOrganizationNavigate />
+   },
+  {
+    path: '/OrganizationProfile',
+    element: <OrganizationProfileNavigate />
+   },
 ];
 
 export default AppRoutes;
