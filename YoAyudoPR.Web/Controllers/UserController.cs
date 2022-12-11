@@ -104,6 +104,13 @@ namespace YoAyudoPR.Web.Controllers
                 return BadRequest();
             }
 
+            if (!string.IsNullOrEmpty(model.Phone))
+            {
+                model.Phone = model.Phone?.Length > 10 ?
+                    $"{model.Phone[..1]} ({model.Phone[1..4]}) {model.Phone[4..7]}-{model.Phone[7..11]}" :
+                    $"({model.Phone?[..3]}) {model.Phone?[3..6]}-{model.Phone?[6..10]}";
+            }
+
             await _userService.Create(model, cancellationToken);
 
             return Ok(model);

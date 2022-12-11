@@ -74,7 +74,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
 
         public async Task Delete(Guid guid, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.FindByGuidAsync(guid);
+            var user = await _userRepository.FirstByConditionAsync(x => x.Guid == guid);
             
             if (user != null)
             {

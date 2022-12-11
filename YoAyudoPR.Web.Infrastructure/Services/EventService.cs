@@ -47,9 +47,16 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             await _eventRepository.AddAndSaveAsync(newEvent, cancellationToken);
         }
 
-        public Task Delete(Guid guid, CancellationToken cancellationToken)
+        public async Task Delete(Guid guid, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var dbEvent = await _eventRepository.FirstByConditionAsync(x => x.Guid == guid);
+
+            if(dbEvent != null)
+            {
+                dbEvent.Isdeleted = true;
+
+                await _eventRepository.UpdateAndSaveAsync(dbEvent, cancellationToken);
+            }
         }
 
         public async Task<IEnumerable<EventListResponse>> FindAll(Expression<Func<Event, bool>> predicate, CancellationToken cancellationToken)

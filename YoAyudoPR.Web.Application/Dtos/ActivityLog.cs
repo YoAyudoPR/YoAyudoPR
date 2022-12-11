@@ -7,39 +7,33 @@ using System.Threading.Tasks;
 
 namespace YoAyudoPR.Web.Application.Dtos
 {
-    public class ActivityLog
+    public class ActivityLogCreateRequest
     {
-        public class ActivityLogCreateRequest
-        {
-            [Required]
-            public int EventId { get; set; }
-        }
+        [Required]
+        public Guid EventGuid { get; set; }
+        [Required]
+        public Guid UserGuid { get; set; }
+    }
 
-        public class ActivityLogUpdateRequest
-        {
-            [Required]
-            public Guid Guid { get; set; }
-            [Required]
-            public int HoursVolunteered { get; set; }
-        }
+    public class ActivityLogUpdateRequest
+    {
+        [Required]
+        public Guid Guid { get; set; }
+        [Required]
+        public int HoursVolunteered { get; set; }
+    }
 
-        public class ActivityLogListResponse
-        {
-            public Guid Guid { get; set; }
-            public string? EventName { get; set; }
-            public int? HoursVolunteered { get; set; }
-            public string? OrganizationName { get; set; }
-        }
-
-        public class ActivityLogResponse
-        {
-            public Guid? Guid { get; set; }
-            public Guid UserGuid { get; set; }
-            public Guid EventGuid { get; set; }
-            public int? Hoursvolunteered { get; set; }
-            public DateTime? Createdat { get; set; }
-            public DateTime? Updatedat { get; set; }
-            public string? Status { get; set; }
-        }
+    public class ActivityLogResponse
+    {
+        public Guid? Guid { get; set; }
+        public Guid UserGuid { get; set; }
+        public string? UserName { get; set; }
+        public string? OrganizationName { get; set; }
+        public Guid EventGuid { get; set; }
+        public string? EventName { get; set; }
+        public int? Hoursvolunteered { get; set; }
+        public DateTime? Createdat { get; set; }
+        public DateTime? Updatedat { get; set; }
+        public string? Status { get; set; }
     }
 }
