@@ -28,12 +28,6 @@ export class Home extends Component {
         this.state = { Data: [] };
     }
 
-    logout = (event) => {
-        event.preventDefault();
-        localStorage.clear();
-        this.props.navigate("/Login")
-    }
-
     render() {
         return (
             <body>
@@ -65,7 +59,7 @@ export class Home extends Component {
                 {/*Testing*/}
                 <div>
                     <h1>Welcome: {String(this.props.info.firstName)} </h1>
-                    <Button variant="primary" value={false} onClick={this.logout}>Log out</Button>
+                    {/*<Button variant="primary" value={false} onClick={this.logout}>Log out</Button>*/}
                 </div>
                 {/*++++++++*/}
                 <div>
