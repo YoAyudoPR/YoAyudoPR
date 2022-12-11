@@ -12,6 +12,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IActivityLogService, ActivityLogService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IMemberService, MemberService>();
+builder.Services.AddScoped<IOrganizationService, OrganizationService>();
 
 builder.Services.AddDbContext<railwayContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

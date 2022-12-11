@@ -28,6 +28,7 @@ namespace YoAyudoPR.Web.Application.Dtos
     public class MemberResponse
     {
         public Guid UserGuid { get; set; }
+        public string? UserName { get; set; }
         public Guid OrganizationGuid { get; set; }
         public string? OrganizationName { get; set; }
         public string? RoleName { get; set; }

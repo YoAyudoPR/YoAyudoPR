@@ -8,7 +8,8 @@ const context = [
     "/api/user",
     "/api/event",
     "/api/member",
-    "/api/activitylog"
+    "/api/activitylog",
+    "/api/organization"
 ];
 
 console.log(target);

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using YoAyudoPR.Web.Application.Dtos;
 using YoAyudoPR.Web.Application.Services;
+using YoAyudoPR.Web.Infrastructure.Services;
 
 namespace YoAyudoPR.Web.Controllers
 {
@@ -34,6 +35,16 @@ namespace YoAyudoPR.Web.Controllers
             }
 
             var memberships = await _memberService.FindAll(x => x.User.Guid == userGuid, cancellationToken);
+
+            return Ok(memberships);
+        }
+
+        [HttpGet("getall")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        {
+            var memberships = await _memberService.FindAll(x => true, cancellationToken);
 
             return Ok(memberships);
         }

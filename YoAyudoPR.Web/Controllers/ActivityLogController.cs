@@ -73,7 +73,7 @@ namespace YoAyudoPR.Web.Controllers
                 return BadRequest("Must include the activity log guid parameter.");
             }
 
-            var db_activityLog = await _activityLogService.FirstByConditionAsync(x => true, cancellationToken);
+            var db_activityLog = await _activityLogService.FirstByConditionAsync(x => x.Guid == guid, cancellationToken);
 
             return Ok(db_activityLog);
         }

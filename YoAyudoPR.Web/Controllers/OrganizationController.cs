@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using YoAyudoPR.Web.Application.Dtos;
 using YoAyudoPR.Web.Application.Services;
+using YoAyudoPR.Web.Infrastructure.Services;
 
 namespace YoAyudoPR.Web.Controllers
 {
@@ -20,6 +21,32 @@ namespace YoAyudoPR.Web.Controllers
             _logger = logger;
             _organizationService = organizationService;
             _memberService = memberService;
+        }
+
+        [HttpGet("getall")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        {
+            var organizations = await _organizationService.FindAll(x => true, cancellationToken);
+
+            return Ok(organizations);
+        }
+
+        [HttpGet("get")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Get([FromQuery] Guid? guid, CancellationToken cancellationToken)
+        {
+            if (guid == null)
+            {
+                return BadRequest("Must include the organization guid parameter.");
+            }
+
+            var organization = await _organizationService.FirstByConditionAsync(x => x.Guid == guid, cancellationToken);
+
+            return Ok(organization);
         }
 
         [HttpPost("create")]
