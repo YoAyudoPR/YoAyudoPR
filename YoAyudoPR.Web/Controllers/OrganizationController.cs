@@ -48,7 +48,7 @@ namespace YoAyudoPR.Web.Controllers
                 return BadRequest("Must include the organization guid parameter.");
             }
 
-            var events = await _eventService.FindAll(x => x.Organization.Guid.GetValueOrDefault() == guid, cancellationToken);
+            var events = await _eventService.FindAll(x => x.Organization.Guid == guid, cancellationToken);
 
             return Ok(events);
         }
