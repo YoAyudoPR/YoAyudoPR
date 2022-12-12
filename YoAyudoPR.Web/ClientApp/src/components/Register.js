@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import './CreateEvent.css';
 import Axios from 'axios';
 
 export function RegNavigate(props) {
@@ -43,6 +44,8 @@ export default class Register extends Component {
 
     render() { 
         return (
+            <div className="R-div mt-4 mb-4 p-4">
+                <h1>Register</h1>
             <form class="row g-3">
                 <div class="col-md-6">
                     <label for="Email" class="form-label">Email</label>
@@ -75,7 +78,8 @@ export default class Register extends Component {
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary" onClick={this.register}>Sign Up</button>  
                 </div>
-            </form>
+                </form>
+            </div>
         );
     }
 }

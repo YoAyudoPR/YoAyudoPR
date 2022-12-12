@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
+import { Container } from 'reactstrap';
 import './Landing.css';
 
 // export const App= () => {
@@ -19,7 +20,9 @@ export class Landing extends Component {
   render() {
     
       return (
-          <><div className="bg-pic">
+          <>
+            <Container className="mt-4 mb-4">
+               <div className="bg-pic">
           <h1 className = "title" >Help Puerto Rico Community</h1>
               <div className="containerAccordion">
               <Accordion defaultActiveKey="0">
@@ -67,6 +70,9 @@ export class Landing extends Component {
                   </Accordion.Item>
               </Accordion>
             </div>
-            </div></>);
+                  </div>
+           </Container>
+
+              </>);
   }
 }

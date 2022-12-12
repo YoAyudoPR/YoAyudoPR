@@ -38,8 +38,6 @@
 }
 
 
-
-
 /*Profile CSS Bellow!*/
 
 .P-container {
@@ -105,7 +103,44 @@
 }
 
 /*OrganizationProfile CSS Bellow! */
-.OP-div {
-    width:50%;
-    margin-left:25%;
+.OP-first-div {
+    width:60%;
+    margin-left:26%;
+}
+.OP-second-div {
+    margin-left:10%;
+}
+
+
+/*CreateOrganization CSS Bellow!*/
+
+.CO-cursor {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    margin-left: 30%;
+}
+
+.CO-div {
+    margin-left:30%;
+}
+
+/*Login CSS Bellow!*/
+
+.login-div {
+    margin:30%;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+.login-p {
+    margin-bottom:0;
+}
+
+/*Register CSS Bellow!*/
+
+.R-div {
+    margin-left: 26%;
+    width: 50%;
+    border: 2px solid red;
+    border-radius: 10px;
 }

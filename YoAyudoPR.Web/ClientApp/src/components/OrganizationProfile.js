@@ -21,7 +21,7 @@ export default class OrganizationProfile extends Component {
 
         return (<>
 
-            <div className="OP-div">
+            <div className="OP-first-div">
                 <h1>ORGANIZATION NAME</h1>
                 <Row>
                     <Col>
@@ -29,11 +29,13 @@ export default class OrganizationProfile extends Component {
                         <p>*It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).*</p>
                     </Col>
                 </Row>
+            </div>
 
+            <div className="mb-4 OP-second-div">
                 {/*Add loop for multiple events!*/}
-                <h5>Events</h5>
-                <Row className="d-flex justify-content-center">
-                    <Col xs={ 4 }>
+                <h2>Events</h2>
+                <Row className="d-flex justify-content-center mb-4">
+                    <Col xs={4} className="mr-4">
                         <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="../images/teamwork.jpg" />
                             <Card.Body>
@@ -63,8 +65,9 @@ export default class OrganizationProfile extends Component {
                 </Row>
                 {/*////////////////////////////////*/}
 
+
                 {/*Add loop for multiple members!*/}
-                <h5>Members</h5>
+                <h2>Members</h2>
                 <Row className="d-flex justify-content-center">
                     <Col xs={ 4 }>
                       
@@ -98,8 +101,8 @@ export default class OrganizationProfile extends Component {
                     </Col>
                 </Row>
                 {/*////////////////////////////////*/}
-
             </div>
+           
 
         </>);
 
