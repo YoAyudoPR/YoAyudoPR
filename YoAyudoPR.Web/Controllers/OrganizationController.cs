@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using YoAyudoPR.Web.Application.Dtos;
 using YoAyudoPR.Web.Application.Services;
 using YoAyudoPR.Web.Infrastructure.Services;
@@ -12,15 +13,18 @@ namespace YoAyudoPR.Web.Controllers
         private readonly ILogger<UserController>? _logger;
         private readonly IOrganizationService _organizationService;
         private readonly IMemberService _memberService;
+        private readonly IEventService _eventService;
 
         public OrganizationController(
             ILogger<UserController> logger,
             IOrganizationService organizationService,
-            IMemberService memberService)
+            IMemberService memberService,
+            IEventService eventService)
         {
             _logger = logger;
             _organizationService = organizationService;
             _memberService = memberService;
+            _eventService = eventService;
         }
 
         [HttpGet("getall")]
@@ -31,6 +35,22 @@ namespace YoAyudoPR.Web.Controllers
             var organizations = await _organizationService.FindAll(x => true, cancellationToken);
 
             return Ok(organizations);
+        }
+
+        [HttpGet("getevents")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetEvents([FromQuery] Guid? guid, CancellationToken cancellationToken)
+        {
+            if (guid == null)
+            {
+                return BadRequest("Must include the organization guid parameter.");
+            }
+
+            var events = await _eventService.FindAll(x => x.Organization.Guid.GetValueOrDefault() == guid, cancellationToken);
+
+            return Ok(events);
         }
 
         [HttpGet("get")]
