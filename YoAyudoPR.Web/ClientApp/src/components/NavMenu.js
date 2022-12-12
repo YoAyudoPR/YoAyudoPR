@@ -1,11 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
+import Axios from 'axios';
 import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
+import { Dropdown } from 'react-bootstrap';
 import './NavMenu.css';
 
 export function LogOutNavigate() {
-    return (<NavMenu navigate={useNavigate()}></NavMenu>)
+    const [Data, setData] = useState([]);
+
+    useEffect(() => {
+        const user_id = localStorage.getItem('guid');
+        Axios.get(`/api/member/getusermemberships?userGuid=${user_id}`, {
+        }).then((response) => {
+            console.log(response);
+            setData(response.data);
+        });
+    }, []);
+
+    return (<NavMenu info={Data} navigate={useNavigate()}></NavMenu>)
 }
 
 export class NavMenu extends Component {
@@ -26,6 +39,12 @@ export class NavMenu extends Component {
     });
   }
 
+    profile = (guid) => {
+        console.log(guid);
+        localStorage.setItem("selectedOrgGuid", guid);
+        this.props.navigate("/OrganizationProfile/");
+    }
+
     logout = (event) => {
         event.preventDefault();
         localStorage.clear();
@@ -33,17 +52,11 @@ export class NavMenu extends Component {
     }
 
     render() {
-        let tab;
         let isLoggedIn;
         if (localStorage.getItem("guid") == null) {
             isLoggedIn = false;
         } else {
             isLoggedIn = true;
-            if (localStorage.getItem("organizationGuid") == null) {
-                tab = <NavLink tag={Link} className="text-light" to="/Home">Create Organization</NavLink>
-            } else {
-                tab = <NavLink tag={Link} className="text-light" to="/Home">Organization Profile</NavLink>
-            }
         }
 
         return (
@@ -71,7 +84,16 @@ export class NavMenu extends Component {
                                 </NavItem>
                             }
 
-                            {isLoggedIn && tab}
+                            {isLoggedIn && 
+                                <Dropdown>
+                                    <Dropdown.Toggle id="dropdown-custom-components">My Organizations</Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        {this.props.info.map((value) => (
+                                            <Dropdown.Item key={value.organizationGuid} value={value.organizationGuid} onClick={() => this.profile(value.organizationGuid)}> {value.organizationName} </Dropdown.Item>
+                                        ))}
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            }
                             {isLoggedIn && 
                                 <NavItem>
                                     <NavLink tag={Link} className="text-light" to="/" onClick={this.logout}>Logout</NavLink>
