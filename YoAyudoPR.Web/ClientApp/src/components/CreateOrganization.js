@@ -57,10 +57,11 @@ export default class CreateOrganization extends Component {
                         <Form.Label>Description</Form.Label>
                         <Form.Control type="text" placeholder="Describe your event!" />
                     </Form.Group>
-                    
+                    <Button className="mt-2" variant="primary" size="sm">
+                        Submit</Button>
                 </Form>
             </div>
-            <ShowCE />
+            
         </>);
     }
 

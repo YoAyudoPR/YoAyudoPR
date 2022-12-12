@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import { CreateEventNavigate } from "./CreateEvent.js";
 import { Category, CategoryDropdown } from './Category'
 import Axios from 'axios';
 import './CreateEvent.css';
@@ -33,8 +34,9 @@ export default class OrganizationProfile extends Component {
 
             <div className="mb-4 OP-second-div">
                 {/*Add loop for multiple events!*/}
-                <h2>Events</h2>
-                <Row className="d-flex justify-content-center mb-4">
+                <h2 className="OP-make-inline">Events</h2>
+                <Button className="OP-button" size="sm"><a className="OP-a" href="/CreateEvent">Create Event</a></Button> 
+                <Row className="d-flex justify-content-center mt-2 mb-4">
                     <Col xs={4} className="mr-4">
                         <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="../images/teamwork.jpg" />

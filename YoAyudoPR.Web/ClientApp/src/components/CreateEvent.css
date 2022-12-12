@@ -110,19 +110,29 @@
 .OP-second-div {
     margin-left:10%;
 }
+.OP-make-inline {
+    display: inline-block;
+}
+.OP-a {
+    color: white;
+    text-decoration:none;
+    
+}
+.OP-a:hover {
+    color: white;
+    text-decoration: none;
+}
 
+.OP-button {
+    margin-left:1rem;
+    display:inline;
+    margin-bottom:0.45em;
+}
 
 /*CreateOrganization CSS Bellow!*/
 
-.CO-cursor {
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-    margin-left: 30%;
-}
-
 .CO-div {
-    margin-left:30%;
+ margin-left:30%;
 }
 
 /*Login CSS Bellow!*/
