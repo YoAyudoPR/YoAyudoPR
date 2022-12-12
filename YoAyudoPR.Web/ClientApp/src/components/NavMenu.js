@@ -56,6 +56,9 @@ export class NavMenu extends Component {
                             <NavItem >
                                 <NavLink tag={Link} className="text-light" to="/">Landing Page</NavLink>
                             </NavItem>
+                            <NavItem >
+                                <NavLink tag={Link} className="text-light" to="/Swagger">API DOCS</NavLink>
+                            </NavItem>
                             {!isLoggedIn &&
                                 <NavItem>
                                     <NavLink tag={Link} className="text-light" to="/Login">Login</NavLink>

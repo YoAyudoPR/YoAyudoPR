@@ -15,6 +15,14 @@ export function HomeUserDetails() {
             console.log(response);
             setData(response.data)
         });
+
+        //Axios.get(`/api/member/getusermemberships?userGuid=${user_id}`, {
+
+        //}).then((response) => {
+        //    console.log(response);
+        //    fo
+        //    localStorage.setItem('organization', response.data.userGuid);
+        //});
     }, []);
 
     return (<Home info={Data} navigate={useNavigate()}></Home>)
@@ -59,7 +67,6 @@ export class Home extends Component {
                 {/*Testing*/}
                 <div>
                     <h1>Welcome: {String(this.props.info.firstName)} </h1>
-                    {/*<Button variant="primary" value={false} onClick={this.logout}>Log out</Button>*/}
                 </div>
                 {/*++++++++*/}
                 <div>

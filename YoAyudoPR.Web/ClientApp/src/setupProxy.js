@@ -9,10 +9,9 @@ const context = [
     "/api/event",
     "/api/member",
     "/api/activitylog",
-    "/api/organization"
+    "/api/organization",
+    "/swagger"
 ];
-
-console.log(target);
 
 module.exports = function (app) {
   const appProxy = createProxyMiddleware(context, {
