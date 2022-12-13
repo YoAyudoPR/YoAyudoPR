@@ -15,14 +15,6 @@ export function HomeUserDetails() {
             console.log(response);
             setData(response.data)
         });
-
-        //Axios.get(`/api/member/getusermemberships?userGuid=${user_id}`, {
-
-        //}).then((response) => {
-        //    console.log(response);
-        //    fo
-        //    localStorage.setItem('organization', response.data.userGuid);
-        //});
     }, []);
 
     return (<Home info={Data} navigate={useNavigate()}></Home>)

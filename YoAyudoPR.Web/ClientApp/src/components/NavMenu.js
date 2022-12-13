@@ -41,8 +41,9 @@ export class NavMenu extends Component {
 
     profile = (guid) => {
         console.log(guid);
-        localStorage.setItem("selectedOrgGuid", guid);
-        this.props.navigate("/OrganizationProfile/");
+        localStorage.setItem("orgGuid", guid);
+        this.props.navigate("/OrganizationProfile");
+        window.location.reload(false);
     }
 
     logout = (event) => {
@@ -57,6 +58,11 @@ export class NavMenu extends Component {
             isLoggedIn = false;
         } else {
             isLoggedIn = true;
+            if (localStorage.getItem("organizationGuid") == null) {
+                <NavLink tag={Link} className="text-light" to="/CreateOrganization">Create Organization</NavLink>
+            } else {
+                <NavLink tag={Link} className="text-light" to="/OrganizationProfile">Organization Profile</NavLink>
+            }
         }
 
         return (

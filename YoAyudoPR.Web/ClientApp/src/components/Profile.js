@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import { Button, Col, Row } from 'react-bootstrap';
 import Axios from 'axios';
-import Container from 'react-bootstrap/Container';
+
 
 export function ProfileNavigate(props) {
-    return (<Profile navigate={useNavigate()}></Profile>)
+    const [Data, setData] = useState([]);
+
+    useEffect(() => {
+        const user_id = localStorage.getItem('guid')
+        Axios.get(`api/user/get?guid=${user_id}`, {
+        }).then((response) => {
+            console.log(response);
+            setData(response.data)
+        });
+    }, []);
+    return (<Profile info={Data} navigate={useNavigate()}></Profile>)
 }
 
 
@@ -17,19 +24,15 @@ export default class Profile extends Component {
 
     constructor(props) {
         super(props);
-        /*his.state = { Data: [] };*/
     }
 
     handleChange(event, field) {
         this.setState({ [field]: event.target.value });
     }
 
-
     render() {
         return (<>
-
             <h1 className="P-h1">Account Profile</h1>
-
             <div className=" mb-4 P-container">
                 <Row>
                     <Col xs={2}><img className="profile-img" src="../images/profile-pic.jpg" alt="Profile picture" /> </Col>
@@ -40,13 +43,11 @@ export default class Profile extends Component {
                 </Row>
             </div>
 
-
             <div className=" mb-4 P-container">
-
                 <Row>
                     <Col>
                         <h5>Name</h5>
-                        <p>*USERS NAME HERE!*</p>
+                        <p>{this.props.info.firstname} {this.props.info.initial} {this.props.info.lastname} {this.props.info.secondLastname}</p>
                     </Col>
                     <Col><Button variant="outline-success">Edit</Button>{' '}</Col>
                 </Row>
@@ -54,14 +55,14 @@ export default class Profile extends Component {
                 <Row>
                     <Col>
                         <h5>Email</h5>
-                        <p>*USERS EMAIL HERE!*</p>
+                        <p>{this.props.info.email}</p>
                     </Col>
                 </Row>
 
                 <Row>
                     <Col>
                         <h5>Phone</h5>
-                        <p>*USERS PHONE HERE!*</p>
+                        <p>{this.props.info.phone}</p>
                     </Col>
                     <Col><Button variant="outline-success">Edit</Button>{' '}</Col>
                 </Row>
