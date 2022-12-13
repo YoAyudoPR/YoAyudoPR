@@ -57,11 +57,6 @@ export class NavMenu extends Component {
             isLoggedIn = false;
         } else {
             isLoggedIn = true;
-            if (localStorage.getItem("organizationGuid") == null) {
-                <NavLink tag={Link} className="text-light" to="/CreateOrganization">Create Organization</NavLink>
-            } else {
-                <NavLink tag={Link} className="text-light" to="/OrganizationProfile">Organization Profile</NavLink>
-            }
         }
 
         return (

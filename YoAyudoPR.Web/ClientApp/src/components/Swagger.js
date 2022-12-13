@@ -14,7 +14,7 @@ export default class Swagger extends Component {
     render() {
         return (
             <div className="App">
-                <SwaggerUI url="https://localhost:44460/swagger/v1/swagger.json" />
+                <SwaggerUI url="https://yoayudopr.azurewebsites.net/swagger/v1/swagger.json" />
             </div>
         );
     }
