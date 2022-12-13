@@ -1,9 +1,7 @@
 ﻿import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import { CreateEventNavigate } from "./CreateEvent.js";
-import { Category, CategoryDropdown } from './Category'
 import Axios from 'axios';
 import './CreateEvent.css';
 
@@ -31,14 +29,6 @@ export default class OrganizationEvents extends Component {
         this.state = { Data: [] };
         console.log(this.props)
     }
-
-/*    ToEvents = (event) => {
-        event.preventDefault();
-        console.log(event.target.value)
-        const eventGuid = event.target.value;
-        localStorage.setItem("eventGuid", eventGuid);
-        this.props.navigate("/OrgEventDetails")
-    }*/
 
     eventsDetails = (event) => {
         event.preventDefault();

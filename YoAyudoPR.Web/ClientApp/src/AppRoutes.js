@@ -3,7 +3,6 @@ import { LogNavigate, LogInStatus } from "./components/Login";
 import { RegNavigate } from "./components/Register";
 import { HomeUserDetails } from "./components/Home";
 import { EventDetailsNavigate } from "./components/EventDetails";
-import { OrgEventDetailsNav } from "./components/OrgEventsDetails";
 import { CreateEventNavigate } from "./components/CreateEvent";
 import { ProfileNavigate } from "./components/Profile";
 import { CreateOrganizationNavigate } from "./components/CreateOrganization";
@@ -28,10 +27,6 @@ const AppRoutes = [
   {
     path: '/EventDetails',
     element: <EventDetailsNavigate />
-    },
-  {
-    path: '/OrgEventDetails',
-      element: <OrgEventDetailsNav />
   },
   {
     path: '/CreateEvent',
