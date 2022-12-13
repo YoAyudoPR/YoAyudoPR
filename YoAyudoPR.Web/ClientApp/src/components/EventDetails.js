@@ -20,6 +20,24 @@ export default class EventDetails extends Component {
         this.props.navigate("/Home");
     }
 
+    reqActivity = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
+        Axios.post("api/activitylog/requestparticipation", {
+            eventGuid: event.target.value,
+            userGuid: localStorage.getItem("guid"),
+        }).then((response) => {
+            console.log(response.data);
+            localStorage.setItem('guid', response.data.userGuid)
+            this.props.navigate("/Home")
+        }).catch((error) => {
+            if (error.response) {
+                console.log(error.response.data);
+                alert(`Error! ${error.message}`);
+            }
+        });
+    }
+
     render() {
         let startdate = new Date(this.props.info.startdate).toUTCString();
         let enddate = new Date(this.props.info.enddate).toUTCString();
@@ -56,7 +74,7 @@ export default class EventDetails extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Button className="mb-4" variant="success">Register for this event</Button>
+                        <Button className="mb-4" variant="success" value={this.props.info.guid} onClick={(e) => this.reqActivity(e, "value")} >Register for this event</Button>
                         <Button variant="primary" onClick={this.goHome} >Go Home</Button>
                         
                     </Row>
