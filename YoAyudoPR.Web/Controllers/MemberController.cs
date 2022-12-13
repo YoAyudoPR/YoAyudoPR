@@ -12,15 +12,18 @@ namespace YoAyudoPR.Web.Controllers
         private readonly ILogger<MemberController>? _logger;
         private readonly IMemberService _memberService;
         private readonly IRoleService _roleService;
+        private IUserService _userService;
 
         public MemberController(
             ILogger<MemberController>? logger,
             IMemberService memberService,
-            IRoleService roleService)
+            IRoleService roleService,
+            IUserService userService)
         {
             _logger = logger;
             _memberService = memberService;
             _roleService = roleService;
+            _userService = userService;
         }
 
         [HttpGet("getusermemberships")]
@@ -74,6 +77,14 @@ namespace YoAyudoPR.Web.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest();
+            }
+
+            var member = await _memberService.FindAll(x =>
+            x.Organization.Guid == model.OrganizationGuid && x.User.Guid == model.UserGuid, cancellationToken);
+
+            if (member.Any())
+            {
+                return BadRequest("This user is already part of this organization");
             }
 
             await _memberService.Create(model, cancellationToken);

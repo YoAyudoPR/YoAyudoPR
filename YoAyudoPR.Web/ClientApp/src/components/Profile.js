@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Col, Row } from 'react-bootstrap';
 import Axios from 'axios';
+import { UserEventCard } from './UserEventCard';
 
 
 export function ProfileNavigate(props) {
@@ -47,7 +48,7 @@ export default class Profile extends Component {
                 <Row>
                     <Col>
                         <h5>Name</h5>
-                        <p>{this.props.info.firstname} {this.props.info.initial} {this.props.info.lastname} {this.props.info.secondLastname}</p>
+                        <p>{this.props.info.fullName}</p>
                     </Col>
                     <Col><Button variant="outline-success">Edit</Button>{' '}</Col>
                 </Row>
@@ -64,7 +65,6 @@ export default class Profile extends Component {
                         <h5>Phone</h5>
                         <p>{this.props.info.phone}</p>
                     </Col>
-                    <Col><Button variant="outline-success">Edit</Button>{' '}</Col>
                 </Row>
 
                 <Row>
@@ -72,28 +72,13 @@ export default class Profile extends Component {
                         <h5>Password</h5>
                         <p>******************</p>
                     </Col>
-                    <Col><Button variant="outline-success">Edit</Button>{' '}</Col>
                 </Row>
 
             </div>
 
             <div className="mb-4 P-container">
                 <h1>Active/Participating Events</h1>
-
-                <Row>
-                    <Col>
-                        <h5>Name</h5>
-                        <p>*EVENT NAME HERE*</p>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col>
-                        <h5>Timeline</h5>
-                        <p className="P-make-block">*EVENT START DATE*</p>
-                        <p>*EVENT END DATE*</p>
-                    </Col>
-                </Row>
+                <UserEventCard/>
 
             </div>
 

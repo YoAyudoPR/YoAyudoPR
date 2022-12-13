@@ -1,28 +1,27 @@
 ﻿import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import { CreateEventNavigate } from "./CreateEvent.js";
 import Axios from 'axios';
-import './CreateEvent.css';
 
-
-export function OrgEventCard(props) {
+export function UserEventCard(props) {
     const [EventData, setEventData] = useState([]);
 
     useEffect(() => {
-        const org_id = localStorage.getItem("orgGuid")
-        Axios.get(`api/organization/getevents?guid=${org_id}`, {
+        const userGuid = localStorage.getItem("guid")
+        Axios.get(`/api/activitylog/getuserparticipations?userGuid=${userGuid}`, {
         }).then((response) => {
             console.log(response);
             setEventData(response.data)
         });
     }, []);
 
-    return (<OrganizationEvents event={EventData} navigate={useNavigate()}></OrganizationEvents>)
+    return (<UserEvents event={EventData} navigate={useNavigate()}></UserEvents>)
 }
 
-export default class OrganizationEvents extends Component {
-    static displayName = OrganizationEvents.name;
+export default class UserEvents extends Component {
+    static displayName = UserEvents.name;
 
     constructor(props) {
         super(props);
@@ -45,22 +44,25 @@ export default class OrganizationEvents extends Component {
     render() {
         if (this.props.event.length > 0) {
             return this.props.event.map(value => {
+                var statusDate = value.updatedat == null ? value.createdat : value.updatedat;
+                let formattedDate = new Date(statusDate).toDateString();
                 return (
                     <div>
-                        <div className="mb-4 OP-second-div">
-                            <Row className="d-flex justify-content-center mb-4">
+                        <div className="mb-4">
+                            <Row className="d-flex mb-4">
                                 <Col xs={4} className="mr-4">
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card>
                                         <Card.Img variant="top" src="../images/teamwork.jpg" />
                                         <Card.Body>
-                                            <Card.Title>{value.name}</Card.Title>
-                                            <Button variant="primary" value={value.guid} onClick={e => this.eventsDetails(e, "value")}>EVENT DETAILS</Button>
+                                            <Card.Title>Event: {value.eventName}</Card.Title>
+                                            <Card.Subtitle>Organization: {value.organizationName}</Card.Subtitle>
+                                            <Card.Text>Hours Volunteered: {value.hoursvolunteered} <br /> Status: {value.status} as of {formattedDate} <br/> </Card.Text>
+                                            <Button variant="primary" value={value.eventGuid} onClick={e => this.eventsDetails(e, "value")}>EVENT DETAILS</Button>
                                         </Card.Body>
                                     </Card>
                                 </Col>
                             </Row>
                         </div>
-                        );
                     </div>
                 );
             });
@@ -71,4 +73,3 @@ export default class OrganizationEvents extends Component {
     }
 
 }
-

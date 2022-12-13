@@ -23,7 +23,6 @@ export class Events extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { Data: [] };
         console.log(this.props)
     }
 
@@ -35,7 +34,6 @@ export class Events extends Component {
         }).then((response) => {
             console.log(response.data);
             localStorage.setItem("event_data", JSON.stringify(response.data))
-            this.setState({ Data: response.data })
             this.props.navigate("/EventDetails")
         });
     }
@@ -50,7 +48,7 @@ export class Events extends Component {
                         <Card style={{ width: '20rem' }}>
                             <Card.Img variant="top" src="../images/Events/beach.jpg" />
                             <Card.Body>
-                                <Card.Title>Events: {value.name} </Card.Title>
+                                <Card.Title>Event: {value.name} </Card.Title>
                                 <Card.Text>Organization: {value.organizationName}</Card.Text>
                                 <Card.Text>{startdate} - {enddate}</Card.Text>
                                 <Card.Text>{value.categoryName}</Card.Text>

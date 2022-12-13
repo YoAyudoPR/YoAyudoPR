@@ -28,7 +28,7 @@ export class Category extends Component {
     }
 
     selectCategory = (event) => {
-        console.log(event)
+        localStorage.setItem("category", event)
     }
 
     getCategory = (event) => {
@@ -81,7 +81,7 @@ export class Category extends Component {
                 <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">SELECT CATEGORY</Dropdown.Toggle>
                 <Dropdown.Menu as={CustomMenu}>
                     {this.props.info.map((value) => (
-                        <Dropdown.Item key={value.categoryId} value={value.categoryId} onClick={e => this.selectCategory(e, "value")}>{value.categoryName}</Dropdown.Item>
+                        <Dropdown.Item key={value.categoryId} onClick={() => this.selectCategory(value.categoryId)}>{value.categoryName}</Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
             </Dropdown>

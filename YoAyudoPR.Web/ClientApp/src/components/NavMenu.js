@@ -40,7 +40,6 @@ export class NavMenu extends Component {
   }
 
     profile = (guid) => {
-        console.log(guid);
         localStorage.setItem("orgGuid", guid);
         this.props.navigate("/OrganizationProfile");
         window.location.reload(false);
@@ -87,6 +86,12 @@ export class NavMenu extends Component {
                             {isLoggedIn && 
                                 <NavItem>
                                     <NavLink tag={Link} className="text-light" to="/Home">Home</NavLink>
+                                </NavItem>
+                            }
+
+                            {isLoggedIn && 
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-light" to="/Profile">Profile</NavLink>
                                 </NavItem>
                             }
 

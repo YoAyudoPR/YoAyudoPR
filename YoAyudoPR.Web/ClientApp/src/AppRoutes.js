@@ -2,13 +2,14 @@ import { Landing } from "./components/Landing";
 import { LogNavigate, LogInStatus } from "./components/Login";
 import { RegNavigate } from "./components/Register";
 import { HomeUserDetails } from "./components/Home";
-import { EventDetailsNavigate } from "./components/EventDetails"; 
+import { EventDetailsNavigate } from "./components/EventDetails";
 import { CreateEventNavigate } from "./components/CreateEvent";
 import { ProfileNavigate } from "./components/Profile";
 import { CreateOrganizationNavigate } from "./components/CreateOrganization";
 import { OrganizationProfileNavigate } from "./components/OrganizationProfile";
 import { SwaggerNavigate } from './components/Swagger';
-
+import { AddHoursNavigate } from './components/AddHours';
+import { AddMemberNavigate } from './components/AddMember';
 
 const AppRoutes = [
   {
@@ -50,7 +51,14 @@ const AppRoutes = [
   {
     path: '/Swagger',
     element: < SwaggerNavigate />
-  }
+    }, {
+      path: '/AddHours',
+      element: <AddHoursNavigate />
+    },
+    {
+        path: '/AddMember',
+        element: <AddMemberNavigate />
+    }
 ];
 
 export default AppRoutes;

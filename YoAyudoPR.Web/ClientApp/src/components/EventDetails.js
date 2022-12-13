@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Col, Row, Card, } from 'react-bootstrap/';
+import Axios from 'axios';
 import './CreateEvent.css';
 
 export function EventDetailsNavigate(props) {
     const event_info = JSON.parse(localStorage.getItem("event_data"))
-    return (<EventDetails info={event_info}  navigate={useNavigate()} ></EventDetails>)
+    return (<EventDetails info={event_info} navigate={useNavigate()} ></EventDetails>)
 }
 
 export default class EventDetails extends Component {
@@ -17,6 +18,24 @@ export default class EventDetails extends Component {
 
     goHome = (event) => {
         this.props.navigate("/Home");
+    }
+
+    reqActivity = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
+        Axios.post("api/activitylog/requestparticipation", {
+            eventGuid: event.target.value,
+            userGuid: localStorage.getItem("guid"),
+        }).then((response) => {
+            console.log(response.data);
+            localStorage.setItem('guid', response.data.userGuid)
+            this.props.navigate("/Home")
+        }).catch((error) => {
+            if (error.response) {
+                console.log(error.response.data);
+                alert(`Error! ${error.message}`);
+            }
+        });
     }
 
     render() {
@@ -77,13 +96,11 @@ export default class EventDetails extends Component {
                             <p className="ED-white-text ED-make-block">{this.props.info.description}</p>
                         </Col>
                     </Row>
-
                     <Row>
                         <Button className="mb-4" variant="success">Register for this event</Button>
                         <Button className="mb-4" variant="primary" onClick={this.goHome} >Go Home</Button>
                         
                     </Row>
-
                 </div>
             </div>
 
