@@ -6,3 +6,12 @@
 .carousel {
 
 }
+.Home-row {
+    justify-content: center;
+    text-align:center;
+    margin-left: 1.5rem;
+}
+
+.Home-event-h1 {
+    text-align: center;
+}

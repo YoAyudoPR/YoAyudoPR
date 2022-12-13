@@ -7,10 +7,9 @@ export class Layout extends Component {
 
   render() {
     return (
-        <div>
-            <LogOutNavigate />
+        <>
+          <LogOutNavigate />
           {this.props.children}
-      </div>
-    );
+    </>);
   }
 }

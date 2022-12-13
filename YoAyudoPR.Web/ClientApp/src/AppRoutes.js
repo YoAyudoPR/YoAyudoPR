@@ -1,20 +1,15 @@
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import { Landing } from "./components/Landing";
-import Login, { LogNavigate, LogInStatus } from "./components/Login";
-import Register, { RegNavigate } from "./components/Register";
-import { Home, HomeUserDetails } from "./components/Home";
-import EventDetails, { EventDetailsNavigate } from "./components/EventDetails"; 
-import CreateEvent, { CreateEventNavigate } from "./components/CreateEvent";
-import Profile, { ProfileNavigate } from "./components/Profile";
-import CreateOrganization, { CreateOrganizationNavigate } from "./components/CreateOrganization";
-import OrganizationProfile, { OrganizationProfileNavigate } from "./components/OrganizationProfile";
-import Swagger, { SwaggerNavigate } from './components/Swagger';
+import { LogNavigate, LogInStatus } from "./components/Login";
+import { RegNavigate } from "./components/Register";
+import { HomeUserDetails } from "./components/Home";
+import { EventDetailsNavigate } from "./components/EventDetails"; 
+import { CreateEventNavigate } from "./components/CreateEvent";
+import { ProfileNavigate } from "./components/Profile";
+import { CreateOrganizationNavigate } from "./components/CreateOrganization";
+import { OrganizationProfileNavigate } from "./components/OrganizationProfile";
+import { SwaggerNavigate } from './components/Swagger';
 import { AddHoursNavigate } from './components/AddHours';
 import { AddMemberNavigate } from './components/AddMember';
-
-const ProtectedRoute = ({ auth: { isAuthenticated }, children }) => {
-    return isAuthenticated ? children : <Navigate to="/Login" />;
-};
 
 const AppRoutes = [
   {
@@ -43,7 +38,7 @@ const AppRoutes = [
   },
   {
      path: '/Home',
-     element: <HomeUserDetails /> /*<ProtectedRoute auth={{ isAuthenticated: { LogInStatus } }}> <Home/></ProtectedRoute>*/
+     element: <HomeUserDetails />
    },
   {
     path: '/CreateOrganization',
