@@ -10,6 +10,7 @@ import { OrganizationProfileNavigate } from "./components/OrganizationProfile";
 import { SwaggerNavigate } from './components/Swagger';
 import { AddHoursNavigate } from './components/AddHours';
 import { AddMemberNavigate } from './components/AddMember';
+import { OrgEventDetailsNavigate } from "./components/OrgEventDetails";
 
 const AppRoutes = [
   {
@@ -51,13 +52,18 @@ const AppRoutes = [
   {
     path: '/Swagger',
     element: < SwaggerNavigate />
-    }, {
+    },
+    {
       path: '/AddHours',
       element: <AddHoursNavigate />
     },
     {
         path: '/AddMember',
         element: <AddMemberNavigate />
+    },
+    {
+        path: '/OrgEventDetails',
+        element: <OrgEventDetailsNavigate />
     }
 ];
 
