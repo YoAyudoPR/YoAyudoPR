@@ -90,6 +90,12 @@ export class NavMenu extends Component {
                             }
 
                             {isLoggedIn && 
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-light" to="/Profile">Profile</NavLink>
+                                </NavItem>
+                            }
+
+                            {isLoggedIn && 
                                 <Dropdown>
                                     <Dropdown.Toggle id="dropdown-custom-components">My Organizations</Dropdown.Toggle>
                                     <Dropdown.Menu>

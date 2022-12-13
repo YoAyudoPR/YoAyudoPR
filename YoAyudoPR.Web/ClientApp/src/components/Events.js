@@ -47,10 +47,10 @@ export class Events extends Component {
                 let enddate = new Date(value.enddate).toDateString();
                 return (
                     <div>
-                        <Card style={{ width: '18rem' }}>
+                        <Card>
                             <Card.Img variant="top" src="../images/Events/beach.jpg" />
                             <Card.Body>
-                                <Card.Title>Events: {value.name} </Card.Title>
+                                <Card.Title>Event: {value.name} </Card.Title>
                                 <Card.Text>Organization: {value.organizationName}</Card.Text>
                                 <Card.Text>{startdate} - {enddate}</Card.Text>
                                 <Card.Text>{value.categoryName}</Card.Text>
