@@ -29,12 +29,16 @@ export default class UserEvents extends Component {
         console.log(this.props)
     }
 
-    ToEvents = (event) => {
+    eventsDetails = (event) => {
         event.preventDefault();
         console.log(event.target.value)
-        const eventGuid = event.target.value;
-        localStorage.setItem("eventGuid", eventGuid);
-        this.props.navigate("/EventDetails")
+        const event_id = event.target.value;
+        Axios.get(`api/event/get?guid=${event_id}`, {
+        }).then((response) => {
+            console.log(response.data);
+            localStorage.setItem("event_data", JSON.stringify(response.data))
+            this.props.navigate("/EventDetails")
+        });
     }
 
     render() {
@@ -53,7 +57,7 @@ export default class UserEvents extends Component {
                                             <Card.Title>Event: {value.eventName}</Card.Title>
                                             <Card.Subtitle>Organization: {value.organizationName}</Card.Subtitle>
                                             <Card.Text>Hours Volunteered: {value.hoursvolunteered} <br /> Status: {value.status} as of {formattedDate} <br/> </Card.Text>
-                                            <Button variant="primary" value={value.guid} onClick={this.ToEvents}>EVENT DETAILS</Button>
+                                            <Button variant="primary" value={value.eventGuid} onClick={e => this.eventsDetails(e, "value")}>EVENT DETAILS</Button>
                                         </Card.Body>
                                     </Card>
                                 </Col>
