@@ -38,7 +38,7 @@ export default class OrganizationEvents extends Component {
         }).then((response) => {
             console.log(response.data);
             localStorage.setItem("event_data", JSON.stringify(response.data))
-            this.props.navigate("/EventDetails")
+            this.props.navigate("/OrgEventDetails")
         });
     }
 

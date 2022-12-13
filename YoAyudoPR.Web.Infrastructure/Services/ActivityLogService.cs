@@ -114,6 +114,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
 
             activityLog.Hoursvolunteered = model.HoursVolunteered;
             activityLog.Updatedat = DateTime.Now;
+            activityLog.Status = "Completed";
 
             await _activityLogRepository.UpdateAndSaveAsync(activityLog, cancellationToken);
         }

@@ -25,13 +25,13 @@ export default class AddHours extends Component {
         event.preventDefault();
         console.log(this.state.activityLogGuid);
         console.log(this.state.Hours);
-        Axios.get("api/activity/create", {
+        Axios.put("/api/activitylog/update", {
             guid: this.state.activityLogGuid,
-            hoursVolunteered: this.state.hours
+            hoursVolunteered: this.state.Hours
         }).then((response) => {
             console.log(response.data);
             localStorage.removeItem("activityLogGuid");
-            this.props.navigate('/EventDetails');
+            this.props.navigate('/OrgEventDetails');
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);

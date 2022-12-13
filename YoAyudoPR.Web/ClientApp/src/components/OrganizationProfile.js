@@ -48,8 +48,9 @@ export default class OrganizationProfile extends Component {
                         <p>{this.props.info.description}</p>
                     </Col>
                 </Row>
-                </div>
-                <h2 className="OP-text-white">Members</h2>
+            </div>
+            <h2 className="OP-make-inline">Members</h2>
+            <Button className="OP-button" size="sm"><a className="OP-a" href="/AddMember">Add Member</a></Button>
             <MemberCard />
                 <h2 className="OP-make-inline OP-text-white">Events</h2>
                   <Button className="OP-button" size="sm"><a className="OP-a" href="/CreateEvent">Create Event</a></Button>
