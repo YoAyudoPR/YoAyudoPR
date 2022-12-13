@@ -65,10 +65,11 @@ export class Home extends Component {
                 </div>
             {/*++++++++*/}
                 <h1 className="Home-event-h1 mb-4 Home-white-text">Events and Activities</h1>
-            <Row className="Home-row col-sm-3 mx-auto">
-                <div className="mb-4">
+            <Row className="ml-4">
+                   
+
                     <EventsCards /> 
-                </div>
+               
             </Row>
         </div>
         </>);

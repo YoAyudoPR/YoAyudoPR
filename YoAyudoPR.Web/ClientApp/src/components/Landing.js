@@ -66,7 +66,7 @@ export class Landing extends Component {
                   <Accordion.Item eventKey="6">
                       <Accordion.Header>Product Demo & Website Coming Soon</Accordion.Header>
                       <Accordion.Body>
-                          <p>The project demo and final implementation will be updated as development progresses. Check here later!</p>
+                          <p>The project demo and final implementation are here!</p>
                       </Accordion.Body>
                   </Accordion.Item>
               </Accordion>

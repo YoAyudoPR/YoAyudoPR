@@ -1,6 +1,6 @@
 ﻿import React, { Component, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button,Col } from 'react-bootstrap';
 import Axios from 'axios';
 import './Home.css';
 
@@ -44,6 +44,7 @@ export class Events extends Component {
                 let startdate = new Date(value.startdate).toDateString();
                 let enddate = new Date(value.enddate).toDateString();
                 return (
+                    <Col class="E-margin col-4 ml-4">
                     <div className="mb-4">
                         <Card style={{ width: '20rem' }}>
                             <Card.Img variant="top" src="../images/Events/beach.jpg" />
@@ -55,7 +56,8 @@ export class Events extends Component {
                                 <Button variant="primary" value={value.guid} onClick={e => this.eventsDetails(e, "value")} >Event Detail</Button>
                             </Card.Body>
                         </Card>
-                    </div>
+                        </div>
+                    </Col>
                 );
             });
         }

@@ -21,10 +21,11 @@
 
 .Home-bg-img {
     background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/image2.png'); /*S+ GOD TIER CODE!*/
-    height:100%;
-   background-size:cover;
+    height:100vh;
+   background-size:cover !important;
     
 }
 .Home-white-text {
     color:ghostwhite;
 }
+
