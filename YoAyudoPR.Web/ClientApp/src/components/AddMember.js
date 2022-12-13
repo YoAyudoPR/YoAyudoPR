@@ -18,7 +18,7 @@ export default class AddMember extends Component {
 
     addMember = (event) => {
         event.preventDefault();
-        const orgGuid = localStorage.getItem("selectedOrgGuid");
+        const orgGuid = localStorage.getItem("orgGuid");
         const memberGuid = localStorage.getItem("memberGuid");
         const roleId = localStorage.getItem("roleId");
         Axios.post("api/member/create", {
