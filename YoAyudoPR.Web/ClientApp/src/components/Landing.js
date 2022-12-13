@@ -21,7 +21,8 @@ export class Landing extends Component {
     
       return (
           <>
-            <Container className="mt-4 mb-4">
+              <div className="Landing-bg-img">
+            <Container className="pt-4 mb-4">
                <div className="bg-pic">
           <h1 className = "title" >Help Puerto Rico Community</h1>
               <div className="containerAccordion">
@@ -72,7 +73,7 @@ export class Landing extends Component {
             </div>
                   </div>
            </Container>
-
+              </div>
               </>);
   }
 }

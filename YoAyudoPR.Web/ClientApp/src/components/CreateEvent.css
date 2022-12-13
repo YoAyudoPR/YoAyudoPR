@@ -28,9 +28,9 @@
 }
 
 .img {
-    height:100vh;
-    background: url('image2.png');
-    background-repeat:no-repeat;
+    height: 100vh;
+    background: url('../../public/images/image2.png');
+    background-repeat: no-repeat;
 }
 .container { /*MOVE THIS TO MAIN PAGE!*/
     width:100%;
@@ -79,8 +79,8 @@
 }
 
 .ED-bg-img {
-    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url(image2.png); /*S+ GOD TIER CODE!*/
-    height: 100vh;
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/image2.png'); /*S+ GOD TIER CODE!*/
+    height: 100%;
 }
 
 .ED-make-block {
@@ -158,4 +158,10 @@
     width: 50%;
     border: 2px solid red;
     border-radius: 10px;
+}
+
+
+/*Possible bomb!*/
+html {
+    height:100vh;
 }

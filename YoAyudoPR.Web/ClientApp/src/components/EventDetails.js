@@ -42,7 +42,7 @@ export default class EventDetails extends Component {
         let startdate = new Date(this.props.info.startdate).toUTCString();
         let enddate = new Date(this.props.info.enddate).toUTCString();
         return (<>
-            <div className="ED-bg-img">
+            <div className="ED-bg-img mb-4">
                 <div className="mb-4 pt-4 ED-container">
                     <Row >
                         <Col xs={5}>
@@ -64,6 +64,29 @@ export default class EventDetails extends Component {
                                     <p>{enddate}</p>
                                 </Col>
                             </Row>
+
+                            <Row>
+                                <Col>
+                                    <h5>Capacity</h5>
+                                    <p className="ED-make-block">*CAPACITY*</p>
+                                </Col>
+                            </Row>
+
+                                <Row>
+                                    <Col>
+                                        <h5>Address</h5>
+                                        <p className="ED-make-block">*ADDRESSS*</p>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <Col>
+                                        <h5>Website</h5>
+                                        <p className="ED-make-block">*URL*</p>
+                                    </Col>
+                                </Row>
+
+
                             </Card>
                         </Col>
                     </Row>
@@ -74,8 +97,8 @@ export default class EventDetails extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Button className="mb-4" variant="success" value={this.props.info.guid} onClick={(e) => this.reqActivity(e, "value")} >Register for this event</Button>
-                        <Button variant="primary" onClick={this.goHome} >Go Home</Button>
+                        <Button className="mb-4" variant="success">Register for this event</Button>
+                        <Button className="mb-4" variant="primary" onClick={this.goHome} >Go Home</Button>
                         
                     </Row>
                 </div>

@@ -13,5 +13,8 @@
     background-color: rgb(13, 110, 253);
     border-radius: 25px;
 }
-
+.Landing-bg-img {
+    height:100vh;
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/image2.png');
+}
 

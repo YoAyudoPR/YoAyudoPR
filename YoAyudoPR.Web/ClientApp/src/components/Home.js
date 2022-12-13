@@ -30,8 +30,8 @@ export class Home extends Component {
 
     render() {
         return (<>
-           
-                <div>
+
+            <div>
                     <Carousel>
                         <Carousel.Item>
                             <img className="d-block w-100" height="400" src="../images/teamwork.jpg" alt="First slide" />
@@ -56,18 +56,21 @@ export class Home extends Component {
                         </Carousel.Item>
                     </Carousel>
             </div>
-            
+
+
+            <div className="Home-bg-img"> 
                 {/*Testing*/}
-                <div className="mt-4">
-                    <h1>Welcome: {String(this.props.info.firstName)}! </h1>
+            <div className="pt-4">
+                <h1 class="Home-name Home-white-text">Welcome: {String(this.props.info.firstName)}! </h1>
                 </div>
             {/*++++++++*/}
-            <h1 className="Home-event-h1 mb-4">Events and Activities</h1>
+                <h1 className="Home-event-h1 mb-4 Home-white-text">Events and Activities</h1>
             <Row className="Home-row col-sm-3 mx-auto">
-            <div className="mb-4">
-                    <EventsCards />
+                <div className="mb-4">
+                    <EventsCards /> 
                 </div>
             </Row>
+        </div>
         </>);
     }
 }
