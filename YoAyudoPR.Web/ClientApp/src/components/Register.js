@@ -44,8 +44,10 @@ export default class Register extends Component {
 
     render() { 
         return (
-            <div className="R-div mt-4 mb-4 p-4">
-                <h1>Register</h1>
+
+            <div className="r-bg-img pt-4">
+                <div className="R-div mb-4 p-4">
+                    <h1 className="r-h1 mb-2">Register</h1>
             <form class="row g-3">
                 <div class="col-md-6">
                     <label for="Email" class="form-label">Email</label>
@@ -79,6 +81,7 @@ export default class Register extends Component {
                     <button type="submit" class="btn btn-primary" onClick={this.register}>Sign Up</button>  
                 </div>
                 </form>
+                </div>
             </div>
         );
     }

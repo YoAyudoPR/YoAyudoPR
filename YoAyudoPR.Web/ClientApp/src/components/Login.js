@@ -41,8 +41,9 @@ export default class Login extends Component {
 
     render() {
         return (
-
-            <div className=" login-div p-4 mt-4 mb-4">
+            <div className="login-bg-img pt-4">
+                <div className=" login-div p-4 mb-4">
+                    <h1 className="login-h1">Login</h1>
                 <form>
                 <div class="mb-3">
                     <label for="Email" class="form-label">Email address</label>
@@ -60,7 +61,7 @@ export default class Login extends Component {
                 <button type="submit" class="mt-4 btn btn-primary" onClick={this.login}>Login</button>
                 </form>
             </div>
-
+            </div>
         );
     }
 }

@@ -42,20 +42,22 @@ export default class CreateOrganization extends Component {
 
     render() {
         return (<>
-            <div className="CO-div mt-4">
-                <h1>CREATE AN ORGANIZATION!</h1>
+            <div className="CO-bg-img pt-4">
+                <div className="CO-div">
+                    <h1 className="CO-text-white">CREATE AN ORGANIZATION!</h1>
                 <Form>
-                    <Form.Group xs={ 6 } as={Col}>
-                        <Form.Label>Organization Name</Form.Label>
+                        <Form.Group xs={6} as={Col}>
+                            <Form.Label class="CO-text-white">Organization Name</Form.Label>
                         <Form.Control type="text" placeholder="Organization name" value={this.state.Name} onChange={(e) => this.handleChange(e, "Name")} />
                     </Form.Group>
 
-                    <Form.Group xs={ 6 } as={Col}>
-                        <Form.Label>Description</Form.Label>
+                        <Form.Group xs={6} as={Col}>
+                            <Form.Label class="CO-text-white">Description</Form.Label>
                         <Form.Control type="text" placeholder="Describe your event!" value={this.state.Description} onChange={(e) => this.handleChange(e, "Description")} />
                     </Form.Group>
                 </Form>
                 <button type="submit" class="mt-4 btn btn-primary" onClick={this.createOrg}>Create</button>
+                </div>
             </div>
         </>);
     }

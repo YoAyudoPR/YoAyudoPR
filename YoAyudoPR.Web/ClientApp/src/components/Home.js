@@ -36,22 +36,22 @@ export class Home extends Component {
                         <Carousel.Item>
                             <img className="d-block w-100" height="400" src="../images/teamwork.jpg" alt="First slide" />
                             <Carousel.Caption>
-                                <h3>Working Toget</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <h3>Working Together</h3>
+                                <p>Find the event that suits you best!</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
                             <img className="d-block w-100" height="400" src="../images/forest.jpg" alt="Second slide" />
                             <Carousel.Caption>
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>Events anywhere in Puerto Rico</h3>
+                                <p>Finding an experice from all over the island.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
                             <img className="d-block w-100" height="400" src="../images/beach2.jpg" alt="Third slide" />
                             <Carousel.Caption>
-                                <h3>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <h3>Clean, cooperate and make an impact</h3>
+                                <p>Trying to get into cleaning Puerto Rico's coast? Take a look!</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>

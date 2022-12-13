@@ -80,6 +80,7 @@
 
 .ED-bg-img {
     background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/image2.png'); /*S+ GOD TIER CODE!*/
+    background-size:cover;
     height: 100%;
 }
 
@@ -134,21 +135,49 @@
     margin-bottom:0.45em;
 }
 
+.OP-bg-img {
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/island.jpg');
+    height: 100vh;
+}
+
+.OP-text-white {
+    color:white;
+}
+
 /*CreateOrganization CSS Bellow!*/
 
 .CO-div {
- margin-left:30%;
+ margin-left:32%;
 }
+.CO-text-white {
+    color:white;
+}
+
+.CO-bg-img {
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/island.jpg');
+    height: 100vh;
+}
+
 
 /*Login CSS Bellow!*/
 
 .login-div {
-    margin:30%;
+    margin:0 30%;
     border: 2px solid red;
     border-radius: 10px;
+    background-color:white;
 }
 .login-p {
     margin-bottom:0;
+}
+
+.login-bg-img {
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/island.jpg');
+    height:100vh;
+    
+}
+.login-h1 {
+    text-align:center;
 }
 
 /*Register CSS Bellow!*/
@@ -158,6 +187,15 @@
     width: 50%;
     border: 2px solid red;
     border-radius: 10px;
+    background-color:white;
+}
+
+.r-bg-img {
+    background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/beach3.jpg');
+    height: 100vh;
+}
+.r-h1 {
+    text-align: center;
 }
 
 

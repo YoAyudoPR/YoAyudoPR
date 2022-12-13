@@ -39,20 +39,22 @@ export default class OrganizationProfile extends Component {
 
     render() {
         return (<>
-            <div className="OP-first-div">
-                <h1>{this.props.info.name}</h1>
-                <Row>
-                    <Col>
+            <div className="OP-bg-img pt-4">
+                <div className="OP-first-div">
+                    <h1 className="OP-text-white">{this.props.info.name}</h1>
+                    <Row>
+                        <Col className="OP-text-white">
                         <h5>Description</h5>
                         <p>{this.props.info.description}</p>
                     </Col>
                 </Row>
-            </div>
-            <h2>Members</h2>
+                </div>
+                <h2 className="OP-text-white">Members</h2>
             <MemberCard />
-            <h2 className="OP-make-inline">Events</h2>
-            <Button className="OP-button" size="sm"><a className="OP-a" href="/CreateEvent">Create Event</a></Button>
-            <OrgEventCard/>
+                <h2 className="OP-make-inline OP-text-white">Events</h2>
+                  <Button className="OP-button" size="sm"><a className="OP-a" href="/CreateEvent">Create Event</a></Button>
+                <OrgEventCard />
+            </div>
         </>);
     }
 
