@@ -9,6 +9,8 @@ import Profile, { ProfileNavigate } from "./components/Profile";
 import CreateOrganization, { CreateOrganizationNavigate } from "./components/CreateOrganization";
 import OrganizationProfile, { OrganizationProfileNavigate } from "./components/OrganizationProfile";
 import Swagger, { SwaggerNavigate } from './components/Swagger';
+import { AddHoursNavigate } from './components/AddHours';
+import { AddMemberNavigate } from './components/AddMember';
 
 const ProtectedRoute = ({ auth: { isAuthenticated }, children }) => {
     return isAuthenticated ? children : <Navigate to="/Login" />;
@@ -54,7 +56,14 @@ const AppRoutes = [
   {
     path: '/Swagger',
     element: < SwaggerNavigate />
-  }
+    }, {
+      path: '/AddHours',
+      element: <AddHoursNavigate />
+    },
+    {
+        path: '/AddMember',
+        element: <AddMemberNavigate />
+    }
 ];
 
 export default AppRoutes;

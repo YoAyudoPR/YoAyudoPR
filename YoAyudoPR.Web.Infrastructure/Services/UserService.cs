@@ -13,6 +13,7 @@ using YoAyudoPR.Web.Domain.Security;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using System.Diagnostics.Metrics;
 
 namespace YoAyudoPR.Web.Infrastructure.Services
 {
@@ -88,18 +89,19 @@ namespace YoAyudoPR.Web.Infrastructure.Services
         {
             var users = await _userRepository.FindAllAsync(predicate, cancellationToken);
 
-            var userList = users.Select(x => new UserResponse
+            var userList = users.Select(user => new UserResponse
             {
-                Guid = x.Guid.GetValueOrDefault(),
-                FirstName = x.Firstname,
-                LastName = x.Lastname,
-                Initial = x.Initial,
-                SecondLastName = x.Secondlastname,
-                Email = x.Email,
-                Phone = x.Phone,
-                ResetPassword = x.Resetpassword,
-                IsDeleted = x.Isdeleted,
-                IsActive = x.Isactive,
+                Guid = user.Guid.GetValueOrDefault(),
+                FullName = user.Firstname + " " + (user.Initial == string.Empty ? string.Empty : user.Initial + ". ") + user.Lastname + " " + user.Secondlastname,
+                FirstName = user.Firstname,
+                LastName = user.Lastname,
+                Initial = user.Initial,
+                SecondLastName = user.Secondlastname,
+                Email = user.Email,
+                Phone = user.Phone,
+                ResetPassword = user.Resetpassword,
+                IsDeleted = user.Isdeleted,
+                IsActive = user.Isactive,
             });
 
             return userList;
@@ -112,6 +114,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             var userInfo = new UserResponse
             {
                 Guid = user.Guid.GetValueOrDefault(),
+                FullName = user.Firstname + " " + (user.Initial == string.Empty ? string.Empty : user.Initial + ". ") + user.Lastname + " " + user.Secondlastname,
                 FirstName = user.Firstname,
                 LastName = user.Lastname,
                 Initial = user.Initial,
@@ -122,10 +125,8 @@ namespace YoAyudoPR.Web.Infrastructure.Services
                 IsDeleted = user.Isdeleted,
                 IsActive = user.Isactive
             };
-
             return userInfo;
         }
-
         public async Task<string> GenerateJWT(User user, string secret, CancellationToken cancellationToken = default)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

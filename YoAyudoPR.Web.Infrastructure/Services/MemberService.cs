@@ -64,7 +64,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             {
                 OrganizationGuid = member.Organization.Guid.GetValueOrDefault(),
                 OrganizationName = member.Organization.Name,
-                UserName = member.User.Firstname + " " + (member.User.Initial == string.Empty ? string.Empty : member.User.Initial + ". ") + member.User.Lastname,
+                UserName = member.User.Firstname + " " + (member.User.Initial == string.Empty ? string.Empty : member.User.Initial + ". ") + member.User.Lastname + " " + member.User.Secondlastname,
                 UserGuid = member.User.Guid.GetValueOrDefault(),
                 RoleName = member.Role.Name
             });
@@ -86,7 +86,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
                 OrganizationGuid = member.Organization.Guid.GetValueOrDefault(),
                 OrganizationName = member.Organization.Name,
                 UserGuid = member.User.Guid.GetValueOrDefault(),
-                UserName = member.User.Firstname + " " + (member.User.Initial == string.Empty ? string.Empty : member.User.Initial + ". ") + member.User.Lastname,
+                UserName = member.User.Firstname + " " + (member.User.Initial == string.Empty ? string.Empty : member.User.Initial + ". ") + member.User.Lastname + " " + member.User.Secondlastname,
                 RoleName = member.Role.Name
             };
 

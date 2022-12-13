@@ -70,6 +70,7 @@ namespace YoAyudoPR.Web.Application.Dtos
     {
         public Guid Guid { get; set; }
         public string? Email { get; set; }
+        public string? FullName { get; set; }
         public string? FirstName { get; set; }
         public string? Initial { get; set; }
         public string? LastName { get; set; }
