@@ -1,9 +1,7 @@
 ﻿import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import { CreateEventNavigate } from "./CreateEvent.js";
-import { Category, CategoryDropdown } from './Category'
 import Axios from 'axios';
 import './CreateEvent.css';
 
@@ -32,12 +30,16 @@ export default class OrganizationEvents extends Component {
         console.log(this.props)
     }
 
-    ToEvents = (event) => {
+    eventsDetails = (event) => {
         event.preventDefault();
         console.log(event.target.value)
-        const eventGuid = event.target.value;
-        localStorage.setItem("eventGuid", eventGuid);
-        this.props.navigate("/OrgEventDetails")
+        const event_id = event.target.value;
+        Axios.get(`api/event/get?guid=${event_id}`, {
+        }).then((response) => {
+            console.log(response.data);
+            localStorage.setItem("event_data", JSON.stringify(response.data))
+            this.props.navigate("/EventDetails")
+        });
     }
 
     render() {
@@ -52,7 +54,7 @@ export default class OrganizationEvents extends Component {
                                         <Card.Img variant="top" src="../images/teamwork.jpg" />
                                         <Card.Body>
                                             <Card.Title>{value.name}</Card.Title>
-                                            <Button variant="primary" value={value.guid} onClick={this.ToEvents}>EVENT DETAILS</Button>
+                                            <Button variant="primary" value={value.guid} onClick={e => this.eventsDetails(e, "value")}>EVENT DETAILS</Button>
                                         </Card.Body>
                                     </Card>
                                 </Col>

@@ -23,7 +23,6 @@ export class Events extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { Data: [] };
         console.log(this.props)
     }
 
@@ -35,7 +34,6 @@ export class Events extends Component {
         }).then((response) => {
             console.log(response.data);
             localStorage.setItem("event_data", JSON.stringify(response.data))
-            this.setState({ Data: response.data })
             this.props.navigate("/EventDetails")
         });
     }
