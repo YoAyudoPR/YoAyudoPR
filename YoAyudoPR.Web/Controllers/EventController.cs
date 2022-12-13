@@ -45,7 +45,7 @@ namespace YoAyudoPR.Web.Controllers
             }
 
             var db_event = await _eventService.FirstByConditionAsync(x 
-                => x.Isdeleted == false && x.Isactive == true, cancellationToken);
+                => x.Isdeleted == false && x.Isactive == true && x.Guid == guid, cancellationToken);
 
             if (db_event == null)
             {
