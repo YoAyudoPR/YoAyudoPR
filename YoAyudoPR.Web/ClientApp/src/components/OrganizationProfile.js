@@ -49,7 +49,7 @@ export default class OrganizationProfile extends Component {
                     </Col>
                 </Row>
             </div>
-            <h2 className="OP-make-inline">Members</h2>
+            <h2 className="OP-make-inline OP-text-white">Members</h2>
             <Button className="OP-button" size="sm"><a className="OP-a" href="/AddMember">Add Member</a></Button>
             <MemberCard />
                 <h2 className="OP-make-inline OP-text-white">Events</h2>
