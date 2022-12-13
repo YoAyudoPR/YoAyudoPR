@@ -40,21 +40,6 @@ export default class CreateOrganization extends Component {
         });
     }
 
-        Axios.post("api/organization/create", {
-            userGuid: localStorage.getItem("guid"),
-            name: this.state.Name,
-            description: this.state.Description,
-        }).then((response) => {
-            console.log(response.data);
-            this.props.navigate("/Home")
-        }).catch((error) => {
-            if (error.response) {
-                console.log(error.response.data);
-                alert(`Error! ${error.message}`);
-            }
-        });
-    }
-
     render() {
         return (<>
             <div className="CO-div mt-4">
