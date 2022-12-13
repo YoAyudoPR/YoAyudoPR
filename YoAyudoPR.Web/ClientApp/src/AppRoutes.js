@@ -9,7 +9,8 @@ import { ProfileNavigate } from "./components/Profile";
 import { CreateOrganizationNavigate } from "./components/CreateOrganization";
 import { OrganizationProfileNavigate } from "./components/OrganizationProfile";
 import { SwaggerNavigate } from './components/Swagger';
-
+import { AddHoursNavigate } from './components/AddHours';
+import { AddMemberNavigate } from './components/AddMember';
 
 const AppRoutes = [
   {
@@ -55,7 +56,14 @@ const AppRoutes = [
   {
     path: '/Swagger',
     element: < SwaggerNavigate />
-  }
+    }, {
+      path: '/AddHours',
+      element: <AddHoursNavigate />
+    },
+    {
+        path: '/AddMember',
+        element: <AddMemberNavigate />
+    }
 ];
 
 export default AppRoutes;

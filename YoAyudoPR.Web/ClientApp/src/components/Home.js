@@ -1,6 +1,6 @@
 ﻿import React, { Component, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Button, Carousel } from 'react-bootstrap';
+import { Button, Carousel,Row } from 'react-bootstrap';
 import { Events, EventsCards } from "./Events.js";
 import Axios from 'axios';
 import './Home.css';
@@ -29,43 +29,45 @@ export class Home extends Component {
     }
 
     render() {
-        return (
-            <body>
+        return (<>
+           
                 <div>
                     <Carousel>
                         <Carousel.Item>
-                            <img className="d-block w-100" height="800" src="../images/teamwork.jpg" alt="First slide" />
+                            <img className="d-block w-100" height="400" src="../images/teamwork.jpg" alt="First slide" />
                             <Carousel.Caption>
-                                <h3>First slide label</h3>
+                                <h3>Working Toget</h3>
                                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img className="d-block w-100" height="800" src="../images/forest.jpg" alt="Second slide" />
+                            <img className="d-block w-100" height="400" src="../images/forest.jpg" alt="Second slide" />
                             <Carousel.Caption>
                                 <h3>Second slide label</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img className="d-block w-100" height="800" src="../images/beach2.jpg" alt="Third slide" />
+                            <img className="d-block w-100" height="400" src="../images/beach2.jpg" alt="Third slide" />
                             <Carousel.Caption>
                                 <h3>Third slide label</h3>
                                 <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
-                </div>
+            </div>
+            
                 {/*Testing*/}
-                <div>
-                    <h1>Welcome: {String(this.props.info.firstName)} </h1>
+                <div className="mt-4">
+                    <h1>Welcome: {String(this.props.info.firstName)}! </h1>
                 </div>
-                {/*++++++++*/}
-                <div>
-                    <h1>Events and Activities</h1>
+            {/*++++++++*/}
+            <h1 className="Home-event-h1 mb-4">Events and Activities</h1>
+            <Row className="Home-row col-sm-3 mx-auto">
+            <div className="mb-4">
                     <EventsCards />
                 </div>
-            </body>
-        );
+            </Row>
+        </>);
     }
 }

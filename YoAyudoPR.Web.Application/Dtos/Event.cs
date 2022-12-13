@@ -82,7 +82,7 @@ namespace YoAyudoPR.Web.Application.Dtos
     public class EventListResponse
     {
         public Guid Guid { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public string? OrganizationName { get; set; }
         public DateTime? Startdate { get; set; }
         public DateTime? Enddate { get; set; }

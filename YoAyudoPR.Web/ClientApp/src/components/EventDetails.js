@@ -51,12 +51,14 @@ export default class EventDetails extends Component {
                     </Row>
                     <Row className="mt-4 mb-4">
                         <Col>
-                            <h5>Desciption</h5>
-                            <p className="ED-make-block">{this.props.info.description}</p>
+                            <h5 className="ED-white-text">Desciption</h5>
+                            <p className="ED-white-text ED-make-block">{this.props.info.description}</p>
                         </Col>
                     </Row>
                     <Row>
-                       <Button variant="primary" onClick={this.goHome} >Go Home</Button>
+                        <Button className="mb-4" variant="success">Register for this event</Button>
+                        <Button variant="primary" onClick={this.goHome} >Go Home</Button>
+                        
                     </Row>
                 </div>
             </div>
