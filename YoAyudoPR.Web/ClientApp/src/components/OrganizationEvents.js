@@ -46,10 +46,10 @@ export default class OrganizationEvents extends Component {
         if (this.props.event.length > 0) {
             return this.props.event.map(value => {
                 return (
-                    <div>
-                        <div className="mb-4 OP-second-div">
-                            <Row className="d-flex justify-content-center mb-4">
-                                <Col xs={4} className="mr-4">
+                   <>
+                        <div className="mb-4">
+                            
+                            <Col class="d-flex justify-content-center mb-4 col-4">
                                     <Card style={{ width: '18rem' }}>
                                         <Card.Img variant="top" src="../images/teamwork.jpg" />
                                         <Card.Body>
@@ -58,10 +58,9 @@ export default class OrganizationEvents extends Component {
                                         </Card.Body>
                                     </Card>
                                 </Col>
-                            </Row>
+                            
                         </div>
-                        );
-                    </div>
+                    </>
                 );
             });
         }

@@ -44,9 +44,9 @@ export default class Member extends Component {
         if (this.props.member.length > 0) {
             return this.props.member.map(value => {
                 return (
-                    <div>
-                        <Row className="d-flex justify-content-center">
-                            <Col xs={4}>
+                 
+                    <Col class="col-4 justify-content-center">
+                            
                                 <Card style={{ width: '18rem' }}>
                                     <Card.Img variant="top" src="../images/profile-pic.jpg" />
                                     <Card.Body>
@@ -56,8 +56,7 @@ export default class Member extends Component {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                        </Row>
-                    </div>
+                      
                 );
             });
         }

@@ -137,7 +137,8 @@
 
 .OP-bg-img {
     background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/island.jpg');
-    height: 100vh;
+    height: 100%;
+    background-size:cover;
 }
 
 .OP-text-white {
@@ -173,7 +174,8 @@
 
 .login-bg-img {
     background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/island.jpg');
-    height:100vh;
+    height:100%;
+    background-size:cover;
     
 }
 .login-h1 {
@@ -192,7 +194,8 @@
 
 .r-bg-img {
     background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url('../../public/images/beach3.jpg');
-    height: 100vh;
+    height: 100%;
+    background-size:cover;
 }
 .r-h1 {
     text-align: center;
