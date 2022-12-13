@@ -27,6 +27,10 @@ export class Category extends Component {
         this.state = { id: 0, name: '' };
     }
 
+    selectCategory = (event) => {
+        console.log(event)
+    }
+
     getCategory = (event) => {
         event.preventDefault();
         Axios.get("api/event/getcategories", {
@@ -42,17 +46,7 @@ export class Category extends Component {
 
     render() {
         const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-            <a
-                href=""
-                ref={ref}
-                onClick={(e) => {
-                    e.preventDefault();
-                    onClick(e);
-                }}
-            >
-                {children}
-                &#x25bc;
-            </a>
+            <a href="" ref={ref} onClick={(e) => {e.preventDefault(); onClick(e); }}>{children} &#x25bc;</a>
         ));
 
         const CustomMenu = React.forwardRef(
@@ -87,7 +81,7 @@ export class Category extends Component {
                 <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">SELECT CATEGORY</Dropdown.Toggle>
                 <Dropdown.Menu as={CustomMenu}>
                     {this.props.info.map((value) => (
-                        <Dropdown.Item key={value.categoryId} value={value}>{value.categoryName}</Dropdown.Item>
+                        <Dropdown.Item key={value.categoryId} value={value.categoryId} onClick={e => this.selectCategory(e, "value")}>{value.categoryName}</Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
             </Dropdown>
