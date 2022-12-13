@@ -40,7 +40,6 @@ export class NavMenu extends Component {
   }
 
     profile = (guid) => {
-        console.log(guid);
         localStorage.setItem("orgGuid", guid);
         this.props.navigate("/OrganizationProfile");
         window.location.reload(false);

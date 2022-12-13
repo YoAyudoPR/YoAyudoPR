@@ -37,7 +37,7 @@ export default class OrganizationEvents extends Component {
         console.log(event.target.value)
         const eventGuid = event.target.value;
         localStorage.setItem("eventGuid", eventGuid);
-        this.props.navigate("/EventDetails")
+        this.props.navigate("/OrgEventDetails")
     }
 
     render() {
@@ -51,8 +51,8 @@ export default class OrganizationEvents extends Component {
                                     <Card style={{ width: '18rem' }}>
                                         <Card.Img variant="top" src="../images/teamwork.jpg" />
                                         <Card.Body>
-                                            <Card.Title>{value.event.name}</Card.Title>
-                                            <Button variant="primary" value={value.event.guid} onClick={this.ToEvents}>EVENT DETAILS</Button>
+                                            <Card.Title>{value.name}</Card.Title>
+                                            <Button variant="primary" value={value.guid} onClick={this.ToEvents}>EVENT DETAILS</Button>
                                         </Card.Body>
                                     </Card>
                                 </Col>

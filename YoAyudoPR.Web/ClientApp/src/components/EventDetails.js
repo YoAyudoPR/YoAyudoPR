@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Col, Row, Card, } from 'react-bootstrap/';
+import Axios from 'axios';
 import './CreateEvent.css';
 
 export function EventDetailsNavigate(props) {
     const event_info = JSON.parse(localStorage.getItem("event_data"))
-    return (<EventDetails info={event_info}  navigate={useNavigate()} ></EventDetails>)
+    return (<EventDetails info={event_info} navigate={useNavigate()} ></EventDetails>)
 }
 
 export default class EventDetails extends Component {
@@ -54,11 +55,9 @@ export default class EventDetails extends Component {
                             <p className="ED-make-block">{this.props.info.description}</p>
                         </Col>
                     </Row>
-
                     <Row>
                        <Button variant="primary" onClick={this.goHome} >Go Home</Button>
                     </Row>
-
                 </div>
             </div>
 

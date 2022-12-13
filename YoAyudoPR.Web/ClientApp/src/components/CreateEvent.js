@@ -6,8 +6,6 @@ import Axios from 'axios';
 import './CreateEvent.css';
 
 export function CreateEventNavigate(props) {
-
-
     return (<CreateEvent navigate={useNavigate()}></CreateEvent>)
 }
 
@@ -16,7 +14,7 @@ export default class CreateEvent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {organizationID: 0 , name: '', description: '', startDate: '', endDate: '', capacity: 0, createdDate: '', website: '', address: '', categoryID: 0};
+        this.state = { name: '', description: '', startDate: new Date().toISOString().substring(0, 16), endDate: new Date().toISOString().substring(0, 16), capacity: 0, createdDate: '', website: '', address: '',};
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -26,8 +24,8 @@ export default class CreateEvent extends Component {
 
     createEvents = (event) => {
         event.preventDefault();
-        Axios.get("api/event/create", {
-            organization_id: this.state.organizationID, /*Buscar*/
+        Axios.post("api/event/create", {
+            organizationGuid: localStorage.getItem("orgGuid"),
             name: this.state.name,
             description: this.state.description,
             startdate: this.state.startDate,
@@ -38,9 +36,10 @@ export default class CreateEvent extends Component {
             isdeleted: false,
             websiteurl: this.state.website,
             address: this.state.address,
-            category_id: this.state.categoryID, /*Buscar*/
+            categoryId: localStorage.getItem("category")
         }).then((response) => {
             console.log(response.data);
+            this.props.navigate("/OrganizationProfile")
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
@@ -57,7 +56,7 @@ export default class CreateEvent extends Component {
                         <Row className="mb-3">
                             <Form.Group xs={6} as={Col} controlId="formGridEmail">
                                 <Form.Label>Name</Form.Label>
-                                <Form.Control type="text" placeholder="Event name" />
+                                <Form.Control type="text" placeholder="Event name" value={this.state.name} onChange={(e) => this.handleChange(e, "name")} />
                             </Form.Group>
                             <Form.Group xs={6} as={Col} controlId="formCapacity">
                                 <CategoryDropdown />
@@ -67,26 +66,26 @@ export default class CreateEvent extends Component {
                         <Row className="mb-3">
                             <Form.Group xs={6} as={Col} controlId="formGridPassword">
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control as="textarea" placeholder="Describe your event" value={this.state.description } />
+                                <Form.Control as="textarea" placeholder="Describe your event" value={this.state.description} onChange={(e) => this.handleChange(e, "description")} />
                             </Form.Group>
                         </Row>
 
                         <Row className="mb-3">
                             <Form.Group xs={4} as={Col} controlId="formGridAddress1">
                                 <Form.Label>Start Date</Form.Label>
-                                <Form.Control type="datetime-local" placeholder="" />
+                                <Form.Control type="datetime-local" placeholder="" value={this.state.startDate} onChange={(e) => this.handleChange(e, "startDate")} />
                             </Form.Group>
 
                             <Form.Group xs={4} as={Col} controlId="formGridAddress2">
                                 <Form.Label>End Date</Form.Label>
-                                <Form.Control type="datetime-local" placeholder="" />
+                                <Form.Control type="datetime-local" placeholder="" value={this.state.endDate} onChange={(e) => this.handleChange(e, "endDate")} />
                             </Form.Group>
                         </Row>
 
                         <Row className="mb-3">
                             <Form.Group xs={4} as={Col} controlId="formCapacity">
                                 <Form.Label>Capacity</Form.Label>
-                                <Form.Control type="text" placeholder="How many can attend?" />
+                                <Form.Control type="text" placeholder="How many can attend?" value={this.state.capacity} onChange={(e) => this.handleChange(e, "capacity")} />
                             </Form.Group>
                             <Form.Group xs={4} as={Col} controlId="formCapacity">
                                 <Form.Label>Website Url</Form.Label>
@@ -97,11 +96,11 @@ export default class CreateEvent extends Component {
                         <Row className="mb-3">
                             <Form.Group xs={6} as={Col} controlId="formCapacity">
                                 <Form.Label>Address</Form.Label>
-                                <Form.Control as="textarea" placeholder="Where is the event?" />
+                                <Form.Control as="textarea" placeholder="Where is the event?" value={this.state.address} onChange={(e) => this.handleChange(e, "address")} />
                             </Form.Group>
                         </Row>
 
-                        <Button className="mt-3" variant="primary">Submit Event</Button>
+                        <Button className="mt-3" variant="primary" onClick={this.createEvents}>Submit Event</Button>
                     </Form>
                 </Container>
             </div>
