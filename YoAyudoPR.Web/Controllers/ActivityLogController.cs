@@ -2,6 +2,7 @@
 using YoAyudoPR.Web.Application.Services;
 using YoAyudoPR.Web.Application.Dtos;
 using System;
+using YoAyudoPR.Web.Models;
 
 namespace YoAyudoPR.Web.Controllers
 {
@@ -23,6 +24,7 @@ namespace YoAyudoPR.Web.Controllers
         [HttpGet("getall")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             var activityLogs = await _activityLogService.FindAll(x => true, cancellationToken);
@@ -33,7 +35,8 @@ namespace YoAyudoPR.Web.Controllers
         [HttpGet("getuserparticipations")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetUserParticipations([FromQuery] Guid? userGuid, CancellationToken cancellationToken)
         {
             if (userGuid == null)
@@ -49,7 +52,8 @@ namespace YoAyudoPR.Web.Controllers
         [HttpGet("geteventparticipants")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetEventParticipants([FromQuery] Guid? eventGuid, CancellationToken cancellationToken)
         {
             if (eventGuid == null)
@@ -65,7 +69,8 @@ namespace YoAyudoPR.Web.Controllers
         [HttpGet("get")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get([FromQuery] Guid? guid, CancellationToken cancellationToken)
         {
             if (guid == null)
@@ -81,7 +86,8 @@ namespace YoAyudoPR.Web.Controllers
         [HttpPost("requestparticipation")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> RequestParticipation([FromBody] ActivityLogCreateRequest model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
@@ -96,7 +102,8 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpPut("update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update([FromBody] ActivityLogUpdateRequest model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
@@ -111,8 +118,10 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpDelete("delete")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
+
         public async Task<IActionResult> Delete([FromQuery] Guid? guid, CancellationToken cancellationToken)
         {
             try
@@ -137,7 +146,7 @@ namespace YoAyudoPR.Web.Controllers
             catch (Exception ex)
             {
                 var requestLogging = new Helpers.RequestLogging(_logger);
-                await requestLogging.LogError(HttpContext, ex, $"deleting user: {guid}");
+                await requestLogging.LogError(HttpContext, ex, $"deleting activity log: {guid}");
 
                 return Problem();
             }

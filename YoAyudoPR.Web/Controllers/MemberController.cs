@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using YoAyudoPR.Web.Application.Dtos;
 using YoAyudoPR.Web.Application.Services;
+using YoAyudoPR.Web.Helpers;
 using YoAyudoPR.Web.Infrastructure.Services;
+using YoAyudoPR.Web.Models;
 
 namespace YoAyudoPR.Web.Controllers
 {
@@ -28,13 +30,18 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("getusermemberships")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(List<MemberResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetUserMemberships([FromQuery] Guid? userGuid, CancellationToken cancellationToken)
         {
             if (userGuid == null)
             {
-                return BadRequest("Must include the user guid parameter.");
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "Must include the user guid parameter."
+                });
             }
 
             var memberships = await _memberService.FindAll(x => x.User.Guid == userGuid, cancellationToken);
@@ -44,7 +51,8 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("getall")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<MemberResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             var memberships = await _memberService.FindAll(x => true, cancellationToken);
@@ -54,13 +62,18 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("getorganizationmembers")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(List<MemberResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetOrganizationMembers([FromQuery] Guid? organizationGuid, CancellationToken cancellationToken)
         {
             if (organizationGuid == null)
             {
-                return BadRequest("Must include the organization guid parameter.");
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "The organization guid is required."
+                });
             }
 
             var memberships = await _memberService.FindAll(x => x.Organization.Guid == organizationGuid, cancellationToken);
@@ -70,13 +83,22 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpPost("create")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Create([FromBody] MemberCreateRequest model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
             }
 
             var member = await _memberService.FindAll(x =>
@@ -84,71 +106,121 @@ namespace YoAyudoPR.Web.Controllers
 
             if (member.Any())
             {
-                return BadRequest("This user is already part of this organization");
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "This user is already part of this organization"
+                });
             }
 
             await _memberService.Create(model, cancellationToken);
 
-            return Ok(model);
+            return Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "Membership created successfully."
+            });
         }
 
         [HttpPut("update")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update([FromBody] MemberUpdateRequest model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
             }
 
             await _memberService.Update(model, cancellationToken);
 
-            return Ok();
+            return Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "Membership was successfully."
+            });
         }
 
         [HttpDelete("delete")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Delete([FromQuery] Guid? guid, CancellationToken cancellationToken)
         {
             try
             {
                 if (guid == null)
                 {
-                    return BadRequest();
+                    return BadRequest(new ErrorResponseModel
+                    {
+                        ErrorCode = "Bad Request",
+                        ErrorMessage = "The membership guid is required."
+                    });
                 }
 
                 var dbMember = await _memberService.FirstByConditionAsync(x => x.Guid == guid, cancellationToken);
 
                 if (dbMember == null)
                 {
-                    return NotFound();
+                    return NotFound(new ErrorResponseModel
+                    {
+                        ErrorCode = "Not Found",
+                        ErrorMessage = "The membership details are not found."
+                    });
                 }
 
-                await _memberService.Delete(guid.GetValueOrDefault(), cancellationToken);
+                await _memberService.Delete(guid.Value, cancellationToken);
 
-                return Ok();
+                return Ok(new SuccessResponseModel
+                {
+                    SuccessMessage = "Membership was deleted."
+                });
 
             }
             catch (Exception ex)
             {
                 var requestLogging = new Helpers.RequestLogging(_logger);
-                await requestLogging.LogError(HttpContext, ex, $"deleting user: {guid}");
+                await requestLogging.LogError(HttpContext, ex, $"deleting membership: {guid}");
 
-                return Problem();
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponseModel
+                {
+                    ErrorCode = "Internal Server Error",
+                    ErrorMessage = ex.Message
+                });
             }
         }
 
         [HttpGet("getroles")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<RoleListResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetRoles(CancellationToken cancellationToken)
         {
-            var roles = await _roleService.FindAll(cancellationToken);
+            try 
+            {
+                var roles = await _roleService.FindAll(cancellationToken);
 
-            return Ok(roles);
+                return Ok(roles);
+            }
+            catch (Exception ex)
+            {
+                var requestLogging = new Helpers.RequestLogging(_logger);
+                await requestLogging.LogError(HttpContext, ex, $"fetching roles");
+
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponseModel
+                {
+                    ErrorCode = "Internal Server Error",
+                    ErrorMessage = ex.Message,
+                });
+            }
         }
     }
 }
