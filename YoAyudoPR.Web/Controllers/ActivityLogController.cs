@@ -23,7 +23,7 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("getall")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<ActivityLogResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
@@ -34,14 +34,18 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("getuserparticipations")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<ActivityLogResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetUserParticipations([FromQuery] Guid? userGuid, CancellationToken cancellationToken)
         {
             if (userGuid == null)
             {
-                return BadRequest("Must include the user guid parameter.");
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "Must include the user guid parameter."
+                });
             }
 
             var activityLogs = await _activityLogService.FindAll(x => x.User.Guid == userGuid, cancellationToken);
@@ -51,14 +55,18 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("geteventparticipants")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<ActivityLogResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetEventParticipants([FromQuery] Guid? eventGuid, CancellationToken cancellationToken)
         {
             if (eventGuid == null)
             {
-                return BadRequest("Must include the event guid parameter.");
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "Must include the event guid parameter."
+                });
             }
 
             var activityLogs = await _activityLogService.FindAll(x => x.Event.Guid == eventGuid, cancellationToken);
@@ -68,14 +76,18 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("get")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActivityLogResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get([FromQuery] Guid? guid, CancellationToken cancellationToken)
         {
             if (guid == null)
             {
-                return BadRequest("Must include the activity log guid parameter.");
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "The activity log guid is required."
+                });
             }
 
             var db_activityLog = await _activityLogService.FirstByConditionAsync(x => x.Guid == guid, cancellationToken);
@@ -85,19 +97,30 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpPost("requestparticipation")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> RequestParticipation([FromBody] ActivityLogCreateRequest model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
             }
 
             await _activityLogService.RequestPartiticpation(model, cancellationToken);
 
-            return Ok(model);
+            return Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "Participation request sent."
+            });
         }
 
         [HttpPut("update")]
@@ -108,47 +131,73 @@ namespace YoAyudoPR.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
             }
 
             await _activityLogService.Update(model, cancellationToken);
 
-            return Ok();
+            return Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "Activity log updated succesfully."
+            });
         }
 
         [HttpDelete("delete")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
 
-        public async Task<IActionResult> Delete([FromQuery] Guid? guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromQuery] Guid? activityLogGuid, CancellationToken cancellationToken)
         {
             try
             {
-                if (guid == null)
+                if (activityLogGuid == null)
                 {
-                    return BadRequest();
+                    return BadRequest(new ErrorResponseModel
+                    {
+                        ErrorCode = "Bad Request",
+                        ErrorMessage = "The activity log guid is required."
+                    });
                 }
 
-                var dbActivityLog = await _activityLogService.FirstByConditionAsync(x => x.Guid == guid, cancellationToken);
+                var dbActivityLog = await _activityLogService.FirstByConditionAsync(x => x.Guid == activityLogGuid, cancellationToken);
 
                 if (dbActivityLog == null)
                 {
-                    return NotFound();
+                    return NotFound(new ErrorResponseModel
+                    {
+                        ErrorCode = "Not Found",
+                        ErrorMessage = "The activity log details are not found."
+                    });
                 }
 
-                await _activityLogService.Delete(guid.GetValueOrDefault(), cancellationToken);
+                await _activityLogService.Delete(activityLogGuid.Value, cancellationToken);
 
-                return Ok();
+                return Ok(new SuccessResponseModel
+                {
+                    SuccessMessage = "Activity log deleted."
+                });
 
             }
             catch (Exception ex)
             {
                 var requestLogging = new Helpers.RequestLogging(_logger);
-                await requestLogging.LogError(HttpContext, ex, $"deleting activity log: {guid}");
+                await requestLogging.LogError(HttpContext, ex, $"deleting activity log: {activityLogGuid}");
 
-                return Problem();
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponseModel
+                {
+                    ErrorCode = "Internal Server Error",
+                    ErrorMessage = ex.Message
+                });
             }
         }
     }

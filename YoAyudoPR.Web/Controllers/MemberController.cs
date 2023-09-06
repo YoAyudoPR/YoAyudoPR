@@ -40,7 +40,7 @@ namespace YoAyudoPR.Web.Controllers
                 return BadRequest(new ErrorResponseModel
                 {
                     ErrorCode = "Bad Request",
-                    ErrorMessage = "Must include the user guid parameter."
+                    ErrorMessage = "The user guid is required."
                 });
             }
 
@@ -144,7 +144,7 @@ namespace YoAyudoPR.Web.Controllers
 
             return Ok(new SuccessResponseModel
             {
-                SuccessMessage = "Membership was successfully."
+                SuccessMessage = "Membership was updated successfully."
             });
         }
 

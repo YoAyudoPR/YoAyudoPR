@@ -28,40 +28,58 @@ namespace YoAyudoPR.Web.Controllers
         [HttpPost("auth")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Authenticate([FromBody] LoginModel model, CancellationToken cancellationToken = default)
         {
             _logger?.LogInformation($"Starting to authenticate user: {model.Email}");
 
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
             }
 
             var user = await _userService.Authenticate(model.Email!, model.Password!, cancellationToken);
 
             if (user == null)
             {
-                return NotFound();
+                return NotFound(new ErrorResponseModel
+                {
+                    ErrorCode = "Not Found",
+                    ErrorMessage = "This user was not found."
+                });
             }
             else
             {
                 if (user.Isactive == false)
                 {
-                    return NotFound();
+                    return NotFound(new ErrorResponseModel
+                    {
+                        ErrorCode = "Not Found",
+                        ErrorMessage = "This user was deactivated."
+                    });
                 } 
                 else if (user.Isdeleted == true)
                 {
-                    return NotFound();
+                    return NotFound(new ErrorResponseModel
+                    {
+                        ErrorCode = "Not Found",
+                        ErrorMessage = "This user was deleted."
+                    });
                 }
             }
 
             //string secret = _configuration.GetValue<string>("JwtSecret");
 
             //var token = await _userService.GenerateJWT(user, secret, cancellationToken);
-
-            //_logger?.LogInformation($"Starting to authenticate user: {model.Email}");
 
             //return Ok(new { token = token });
 
@@ -70,6 +88,8 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("searchusers")]
         [Produces("application/json")]
+        [ProducesResponseType(typeof(List<UserResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> SearchUsers(CancellationToken cancellationToken)
         {
             var users = await _userService.FindAll(user => user.Isdeleted == false, cancellationToken);
@@ -79,29 +99,43 @@ namespace YoAyudoPR.Web.Controllers
 
         [HttpGet("get")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Get([FromQuery] Guid? guid, CancellationToken cancellationToken)
+        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Get([FromQuery] Guid? userGuid, CancellationToken cancellationToken)
         {
-            if (guid == null)
+            if (userGuid == null)
             {
-                return BadRequest();
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "The user guid is required."
+                });
             }
 
-            var user = await _userService.FirstByConditionAsync(user => user.Guid == guid, cancellationToken);
+            var user = await _userService.FirstByConditionAsync(user => user.Guid == userGuid, cancellationToken);
             
             return Ok(user);
         }
 
         [HttpPost("create")]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Create([FromBody] UserCreateRequest model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
             }
 
             if (!string.IsNullOrEmpty(model.Phone))
@@ -113,54 +147,85 @@ namespace YoAyudoPR.Web.Controllers
 
             await _userService.Create(model, cancellationToken);
 
-            return Ok(model);
+            return Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "User created successfully."
+            });
         }
         
         [HttpPut("update")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update([FromBody] UserUpdateRequest model, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
             }
 
             await _userService.Update(model, cancellationToken);
 
-            return Ok();
+            return Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "User updated successfully."
+            });
         }
 
         [HttpDelete("delete")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete([FromQuery] Guid? guid, CancellationToken cancellationToken)
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Delete([FromQuery] Guid? userGuid, CancellationToken cancellationToken)
         {
             try
             {
-                if (guid == null)
+                if (userGuid == null)
                 {
-                    return BadRequest();
+                    return BadRequest(new ErrorResponseModel
+                    {
+                        ErrorCode = "Bad Request",
+                        ErrorMessage = "The user guid is required."
+                    });
                 }
 
-                var user = await _userService.FirstByConditionAsync(x => x.Guid == guid, cancellationToken);
+                var user = await _userService.FirstByConditionAsync(x => x.Guid == userGuid, cancellationToken);
 
                 if (user == null)
                 {
-                    return NotFound();
+                    return NotFound(new ErrorResponseModel
+                    {
+                        ErrorCode = "Not Found",
+                        ErrorMessage = "The user details are not found."
+                    });
                 }
 
-                await _userService.Delete(guid.GetValueOrDefault(), cancellationToken);
+                await _userService.Delete(userGuid.GetValueOrDefault(), cancellationToken);
 
-                return Ok();
+                return Ok(new SuccessResponseModel
+                {
+                    SuccessMessage = "User was deleted."
+                });
 
             } catch (Exception ex)
             {
                 var requestLogging = new Helpers.RequestLogging(_logger);
-                await requestLogging.LogError(HttpContext, ex, $"deleting user: {guid}");
+                await requestLogging.LogError(HttpContext, ex, $"deleting user: {userGuid}");
 
-                return Problem();
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponseModel
+                {
+                    ErrorCode = "Internal Server Error",
+                    ErrorMessage = ex.Message,
+                });
             }
         }
     }
