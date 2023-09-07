@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using YoAyudoPR.Web.Application.Dtos;
+using YoAyudoPR.Web.Application.Dtos.Authentication;
 using YoAyudoPR.Web.Domain.Entities;
 
 namespace YoAyudoPR.Web.Application.Services
@@ -18,5 +19,6 @@ namespace YoAyudoPR.Web.Application.Services
         Task Create(UserCreateRequest model, CancellationToken cancellationToken);
         Task Update(UserUpdateRequest model, CancellationToken cancellationToken);
         Task Delete(Guid guid, CancellationToken cancellationToken);
+        Task<bool> ForgotPassword(ForgotPasswordRequest model, CancellationToken cancellationToken);
     }
 }

@@ -14,6 +14,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Diagnostics.Metrics;
+using YoAyudoPR.Web.Application.Dtos.Authentication;
 
 namespace YoAyudoPR.Web.Infrastructure.Services
 {
@@ -127,6 +128,26 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             };
             return userInfo;
         }
+
+        public async Task<bool> ForgotPassword(ForgotPasswordRequest model, CancellationToken cancellationToken)
+        {
+            var user = await _userRepository.FirstByConditionAsync(x => x.Email == model.Email, cancellationToken);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            //TODO: Send email with reset password
+
+            //TODO: Create ForgotPassword bit column and user
+            //user.ForgotPassword = true;
+
+            await _userRepository.UpdateAndSaveAsync(user, cancellationToken);
+
+            return true;
+        }
+
         public async Task<string> GenerateJWT(User user, string secret, CancellationToken cancellationToken = default)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

@@ -1,4 +1,4 @@
-﻿namespace YoAyudoPR.Web.Models
+﻿namespace YoayudoPR.Web.Models.Response
 {
     public class SuccessResponseModel
     {

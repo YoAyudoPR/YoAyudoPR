@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Yoayudopr.Web.Models.Authentication;
+using YoayudoPR.Web.Models.Response;
 using YoAyudoPR.Web.Application.Dtos;
+using YoAyudoPR.Web.Application.Dtos.Authentication;
 using YoAyudoPR.Web.Application.Services;
-using YoAyudoPR.Web.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -227,6 +229,48 @@ namespace YoAyudoPR.Web.Controllers
                     ErrorMessage = ex.Message,
                 });
             }
+        }
+
+        [HttpPost("forgotpassword")]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordRequest model, CancellationToken cancellationToken)
+        {
+            if (!ModelState.IsValid)
+            {
+                var message = string.Join(" | ", ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage));
+
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = message
+                });
+            }
+
+            if (string.IsNullOrWhiteSpace(model.Email))
+            {
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = "Please provide email or username."
+                });
+            }
+
+            var userUpdated = await _userService.ForgotPassword(model, cancellationToken);
+
+            return userUpdated ? Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "An email has been sent to reset your password."
+            }) : NotFound(new ErrorResponseModel
+            {
+                ErrorCode = "Not Found",
+                ErrorMessage = "The user details are not found."
+            });
+            
         }
     }
 }

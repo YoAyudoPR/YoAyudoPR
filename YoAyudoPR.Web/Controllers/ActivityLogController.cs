@@ -2,7 +2,7 @@
 using YoAyudoPR.Web.Application.Services;
 using YoAyudoPR.Web.Application.Dtos;
 using System;
-using YoAyudoPR.Web.Models;
+using YoayudoPR.Web.Models.Response;
 
 namespace YoAyudoPR.Web.Controllers
 {

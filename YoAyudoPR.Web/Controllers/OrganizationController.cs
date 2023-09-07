@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
+using YoayudoPR.Web.Models.Response;
 using YoAyudoPR.Web.Application.Dtos;
 using YoAyudoPR.Web.Application.Services;
-using YoAyudoPR.Web.Infrastructure.Services;
-using YoAyudoPR.Web.Models;
 
 namespace YoAyudoPR.Web.Controllers
 {

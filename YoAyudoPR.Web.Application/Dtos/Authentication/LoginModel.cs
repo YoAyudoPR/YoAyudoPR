@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace YoAyudoPR.Web.Models
+namespace Yoayudopr.Web.Models.Authentication
 {
     public class LoginModel
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yoayudopr.web", "YoAyudoPR.Web\yoayudopr.web.csproj", "{4BEC4522-78D8-4271-AF63-6927A78BE630}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoayudoPR.Web", "YoAyudoPR.Web\YoayudoPR.Web.csproj", "{4BEC4522-78D8-4271-AF63-6927A78BE630}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoAyudoPR.Web.Infrastructure", "YoAyudoPR.Web.Infrastructure\YoAyudoPR.Web.Infrastructure.csproj", "{56A4F5A3-DB1A-4AD5-9A9F-812E0EC5D65D}"
 EndProject
