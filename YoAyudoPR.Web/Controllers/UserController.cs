@@ -288,9 +288,12 @@ namespace YoAyudoPR.Web.Controllers
                 return BadRequest(errors);
             }
 
-            var passwordChanged = await _userService.ChangePassword(model, Guid.NewGuid(), cancellationToken);
+            await _userService.ChangePassword(model, Guid.NewGuid(), cancellationToken);
 
-            return passwordChanged = 
+            return Ok(new SuccessResponseModel
+            {
+                SuccessMessage = "Password changed successfully."
+            });
         }
     }
 }
