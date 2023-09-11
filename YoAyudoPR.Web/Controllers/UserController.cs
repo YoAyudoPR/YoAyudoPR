@@ -4,6 +4,7 @@ using YoayudoPR.Web.Models.Response;
 using YoAyudoPR.Web.Application.Dtos;
 using YoAyudoPR.Web.Application.Dtos.Authentication;
 using YoAyudoPR.Web.Application.Services;
+using YoAyudoPR.Web.Extensions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -271,6 +272,25 @@ namespace YoAyudoPR.Web.Controllers
                 ErrorMessage = "The user details are not found."
             });
             
+        }
+
+        [HttpPut("changepassword")]
+        [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> ChangePassword(ChangePasswordRequest model, CancellationToken cancellationToken)
+        {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.GetModelStateErrors();
+
+                return BadRequest(errors);
+            }
+
+            var passwordChanged = await _userService.ChangePassword(model, Guid.NewGuid(), cancellationToken);
+
+            return passwordChanged = 
         }
     }
 }

@@ -20,5 +20,6 @@ namespace YoAyudoPR.Web.Application.Services
         Task Update(UserUpdateRequest model, CancellationToken cancellationToken);
         Task Delete(Guid guid, CancellationToken cancellationToken);
         Task<bool> ForgotPassword(ForgotPasswordRequest model, CancellationToken cancellationToken);
+        Task ChangePassword(ChangePasswordRequest model, Guid userGuid, CancellationToken cancellationToken);
     }
 }

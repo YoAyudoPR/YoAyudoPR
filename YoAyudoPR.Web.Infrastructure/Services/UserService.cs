@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Diagnostics.Metrics;
 using YoAyudoPR.Web.Application.Dtos.Authentication;
+using YoAyudoPR.Web.Application.Exceptions;
 
 namespace YoAyudoPR.Web.Infrastructure.Services
 {
@@ -46,6 +47,22 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             }
 
             return null;
+        }
+
+        public async Task ChangePassword(ChangePasswordRequest model, Guid userGuid, CancellationToken cancellationToken)
+        {
+            var user = await _userRepository.FirstByConditionAsync(x => x.Guid == userGuid, cancellationToken) 
+                ?? throw new UserNotFoundException(userGuid, Guid.NewGuid()); // TODO: add correlationId
+
+            await Authenticate(user.Email, model.OldPassword, cancellationToken);
+
+            var salt = _passwordSecurityService.CreateSalt();
+            var hashedPassword = _passwordSecurityService.CreatePasswordHash(model.NewPassword, salt);
+
+            user.Passwordsalt = salt;
+            user.Passwordhash = hashedPassword;
+
+            await _userRepository.UpdateAndSaveAsync(user);
         }
 
         public async Task Create(UserCreateRequest model, CancellationToken cancellationToken)
@@ -140,8 +157,7 @@ namespace YoAyudoPR.Web.Infrastructure.Services
 
             //TODO: Send email with reset password
 
-            //TODO: Create ForgotPassword bit column and user
-            //user.ForgotPassword = true;
+            user.Resetpassword = true;
 
             await _userRepository.UpdateAndSaveAsync(user, cancellationToken);
 
