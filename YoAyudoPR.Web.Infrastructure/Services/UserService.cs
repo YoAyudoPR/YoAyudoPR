@@ -16,6 +16,7 @@ using System.Security.Claims;
 using System.Diagnostics.Metrics;
 using YoAyudoPR.Web.Application.Dtos.Authentication;
 using YoAyudoPR.Web.Application.Exceptions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace YoAyudoPR.Web.Infrastructure.Services
 {
@@ -54,7 +55,8 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             var user = await _userRepository.FirstByConditionAsync(x => x.Guid == userGuid, cancellationToken) 
                 ?? throw new UserNotFoundException(userGuid, Guid.NewGuid()); // TODO: add correlationId
 
-            await Authenticate(user.Email, model.OldPassword, cancellationToken);
+            var hashedOldPassword = _passwordSecurityService.CreatePasswordHash(model.OldPassword, user!.Passwordsalt);
+            if (hashedOldPassword != user!.Passwordhash) throw new ChangePasswordFailedException(user.Email, "The password is incorrect.");
 
             var salt = _passwordSecurityService.CreateSalt();
             var hashedPassword = _passwordSecurityService.CreatePasswordHash(model.NewPassword, salt);
@@ -62,7 +64,14 @@ namespace YoAyudoPR.Web.Infrastructure.Services
             user.Passwordsalt = salt;
             user.Passwordhash = hashedPassword;
 
-            await _userRepository.UpdateAndSaveAsync(user);
+            try
+            {
+                await _userRepository.UpdateAndSaveAsync(user, cancellationToken);
+            }
+            catch (Exception)
+            {
+                await _userRepository.UpdateAndSaveAsync(user, cancellationToken);
+            }
         }
 
         public async Task Create(UserCreateRequest model, CancellationToken cancellationToken)

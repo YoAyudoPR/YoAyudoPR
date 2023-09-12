@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using Yoayudopr.Web.Models.Authentication;
 using YoayudoPR.Web.Models.Response;
 using YoAyudoPR.Web.Application.Dtos;
 using YoAyudoPR.Web.Application.Dtos.Authentication;
+using YoAyudoPR.Web.Application.Exceptions;
 using YoAyudoPR.Web.Application.Services;
 using YoAyudoPR.Web.Extensions;
 
@@ -279,21 +282,60 @@ namespace YoAyudoPR.Web.Controllers
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> ChangePassword(ChangePasswordRequest model, CancellationToken cancellationToken)
         {
-            if (!ModelState.IsValid)
-            {
-                var errors = ModelState.GetModelStateErrors();
+            _ = Guid.TryParse(HttpContext.Items["UserGuid"]?.ToString() ?? "", out Guid userGuid);
 
-                return BadRequest(errors);
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    var message = string.Join(" | ", ModelState.Values
+                            .SelectMany(v => v.Errors)
+                            .Select(e => e.ErrorMessage));
+
+                    return BadRequest(new ErrorResponseModel
+                    {
+                        ErrorCode = "Bad Request",
+                        ErrorMessage = message
+                    });
+                }
+
+                await _userService.ChangePassword(model, userGuid, cancellationToken);
+
+                return Ok(new SuccessResponseModel
+                {
+                    SuccessMessage = "Password changed successfully."
+                });
+
+            } catch (UserNotFoundException ex)
+            {
+                return NotFound(new ErrorResponseModel
+                {
+                    ErrorCode = "Not Found",
+                    ErrorMessage = ex.ErrorMessage
+                });
+            } catch (ChangePasswordFailedException ex)
+            {
+                return BadRequest(new ErrorResponseModel
+                {
+                    ErrorCode = "Bad Request",
+                    ErrorMessage = ex.ErrorMessage
+                });
             }
-
-            await _userService.ChangePassword(model, Guid.NewGuid(), cancellationToken);
-
-            return Ok(new SuccessResponseModel
+            catch (Exception ex)
             {
-                SuccessMessage = "Password changed successfully."
-            });
+                var requestLogging = new Helpers.RequestLogging(_logger);
+                await requestLogging.LogError(HttpContext, ex, $"changing password: {userGuid}");
+
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponseModel
+                {
+                    ErrorCode = "Internal Server Error",
+                    ErrorMessage = ex.Message
+                });
+            }
+            
         }
     }
 }

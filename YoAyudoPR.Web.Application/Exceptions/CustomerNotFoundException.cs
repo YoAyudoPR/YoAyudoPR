@@ -7,12 +7,12 @@
         {
             this.UserGuid = userGuid;
             this.CorrelationId = correlationId;
-            this.ErrorCode = "Customer_Not_Found";
+            this.ErrorMessage = "User was not found";
         }
 
         public Guid UserGuid { get; private set; }
         public Guid CorrelationId { get; private set; }
-        public string ErrorCode { get; private set; }
+        public string ErrorMessage { get; private set; }
     }
 }
 

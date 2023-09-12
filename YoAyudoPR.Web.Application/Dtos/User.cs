@@ -17,6 +17,7 @@ namespace YoAyudoPR.Web.Application.Dtos
     {
         [Required]
         [MaxLength(150)]
+        [EmailAddress]
         public string Email { get; set; } = null!;
 
         [Required]
@@ -36,6 +37,8 @@ namespace YoAyudoPR.Web.Application.Dtos
         public string? Phone { get; set; }
 
         [Required]
+        [RegularExpression(@"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z]).*$",
+        ErrorMessage = "Password must be alphanumeric, contain capital letters, have a min of 8 characters and contain 1+ special character.")]
         public string Password { get; set; } = null!;
     }
 
