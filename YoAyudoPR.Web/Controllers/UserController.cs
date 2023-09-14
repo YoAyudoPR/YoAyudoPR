@@ -277,7 +277,7 @@ namespace YoAyudoPR.Web.Controllers
             
         }
 
-        [HttpPut("changepassword")]
+        [HttpPost("changepassword")]
         [ProducesResponseType(typeof(SuccessResponseModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status404NotFound)]
