@@ -1,0 +1,5862 @@
+{
+	"info": {
+		"_postman_id": "de194921-a95b-4443-98ce-68a919740daa",
+		"name": "Yo Ayudo PR API",
+		"description": "An ASP.NET Core Web API for connecting event organizers and volunteers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "3997392-de194921-a95b-4443-98ce-68a919740daa"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "activitylog",
+					"item": [
+						{
+							"name": "getall",
+							"item": [
+								{
+									"name": "/api/activitylog/getall",
+									"id": "9598682a-594a-4b58-bce9-5896e4653e01",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/activitylog/getall",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"activitylog",
+												"getall"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "ff13a322-7bc7-44e9-ac52-6681b064473f",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/getall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"getall"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"guid\": \"<uuid>\",\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"eventGuid\": \"<uuid>\",\n    \"eventName\": \"<string>\",\n    \"hoursvolunteered\": \"<integer>\",\n    \"createdat\": \"<dateTime>\",\n    \"updatedat\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"guid\": \"<uuid>\",\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"eventGuid\": \"<uuid>\",\n    \"eventName\": \"<string>\",\n    \"hoursvolunteered\": \"<integer>\",\n    \"createdat\": \"<dateTime>\",\n    \"updatedat\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "dcf3a1a6-2894-4cf7-99f4-31d9e0c68d65",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/getall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"getall"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "99a75033-5359-4db0-a452-2714064ed342"
+						},
+						{
+							"name": "getuserparticipations",
+							"item": [
+								{
+									"name": "/api/activitylog/getuserparticipations",
+									"id": "0fdf896c-5dee-41cd-993a-0c30fc6f7c78",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/activitylog/getuserparticipations?userGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"activitylog",
+												"getuserparticipations"
+											],
+											"query": [
+												{
+													"key": "userGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "96d8d693-bb26-4127-b9a7-a2c4a328e320",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/getuserparticipations?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"getuserparticipations"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"guid\": \"<uuid>\",\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"eventGuid\": \"<uuid>\",\n    \"eventName\": \"<string>\",\n    \"hoursvolunteered\": \"<integer>\",\n    \"createdat\": \"<dateTime>\",\n    \"updatedat\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"guid\": \"<uuid>\",\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"eventGuid\": \"<uuid>\",\n    \"eventName\": \"<string>\",\n    \"hoursvolunteered\": \"<integer>\",\n    \"createdat\": \"<dateTime>\",\n    \"updatedat\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "8a22ec4a-4397-45c2-96d5-d0f7aac4d1e0",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/getuserparticipations?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"getuserparticipations"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "68985ae3-3b8c-434a-9363-c96ac15cab34",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/getuserparticipations?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"getuserparticipations"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "aaf3b172-9a28-44ad-9c20-7bde7d9230a8"
+						},
+						{
+							"name": "geteventparticipants",
+							"item": [
+								{
+									"name": "/api/activitylog/geteventparticipants",
+									"id": "b7b931f6-2925-4aae-b788-d3626912cf27",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/activitylog/geteventparticipants?eventGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"activitylog",
+												"geteventparticipants"
+											],
+											"query": [
+												{
+													"key": "eventGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "508cf9ca-537e-47a9-b263-ba6fd1a99b50",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/geteventparticipants?eventGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"geteventparticipants"
+													],
+													"query": [
+														{
+															"key": "eventGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"guid\": \"<uuid>\",\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"eventGuid\": \"<uuid>\",\n    \"eventName\": \"<string>\",\n    \"hoursvolunteered\": \"<integer>\",\n    \"createdat\": \"<dateTime>\",\n    \"updatedat\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"guid\": \"<uuid>\",\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"eventGuid\": \"<uuid>\",\n    \"eventName\": \"<string>\",\n    \"hoursvolunteered\": \"<integer>\",\n    \"createdat\": \"<dateTime>\",\n    \"updatedat\": \"<dateTime>\",\n    \"status\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "ea313f22-71f2-4211-a5a6-6ff1d2dc80e9",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/geteventparticipants?eventGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"geteventparticipants"
+													],
+													"query": [
+														{
+															"key": "eventGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "21dcf26d-057b-4a7d-bb4a-d1d0100ef05d",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/geteventparticipants?eventGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"geteventparticipants"
+													],
+													"query": [
+														{
+															"key": "eventGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "fa42c873-27f4-49c9-96b5-d50b42898934"
+						},
+						{
+							"name": "get",
+							"item": [
+								{
+									"name": "/api/activitylog/get",
+									"id": "620bc01e-7f5e-4b07-92e0-f4e0338484a0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/activitylog/get?guid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"activitylog",
+												"get"
+											],
+											"query": [
+												{
+													"key": "guid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "9510dcb2-ba64-4779-b776-f5ff6629a2e8",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/get?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"get"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"guid\": \"<uuid>\",\n  \"userGuid\": \"<uuid>\",\n  \"userName\": \"<string>\",\n  \"organizationName\": \"<string>\",\n  \"eventGuid\": \"<uuid>\",\n  \"eventName\": \"<string>\",\n  \"hoursvolunteered\": \"<integer>\",\n  \"createdat\": \"<dateTime>\",\n  \"updatedat\": \"<dateTime>\",\n  \"status\": \"<string>\"\n}"
+										},
+										{
+											"id": "b362dec2-cc60-4670-9ff1-d3ad5f2d0737",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/get?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"get"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "15fafdf4-68fd-4d83-8370-f730ca3070f4",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/get?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"get"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "29ae8480-6e7a-474c-929f-4e10901d089a"
+						},
+						{
+							"name": "requestparticipation",
+							"item": [
+								{
+									"name": "/api/activitylog/requestparticipation",
+									"id": "97bbeb05-2574-4e11-a14e-641a95923dae",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"eventGuid\": \"<uuid>\",\n  \"userGuid\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/activitylog/requestparticipation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"activitylog",
+												"requestparticipation"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "8606b248-5340-4a45-9c69-5fcdd949a44a",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"eventGuid\": \"<uuid>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/requestparticipation",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"requestparticipation"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "01a6099d-6d61-4d60-ac84-36099238dc83",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"eventGuid\": \"<uuid>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/requestparticipation",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"requestparticipation"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "214547b2-ae38-42d8-b0fd-ec1b2acfbcfd",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"eventGuid\": \"<uuid>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/requestparticipation",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"requestparticipation"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "65a514a3-860d-4e3a-83b6-c589c01050ba"
+						},
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "/api/activitylog/update",
+									"id": "9a51c79f-75eb-4ecc-8894-3175fae39433",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"guid\": \"<uuid>\",\n  \"hoursVolunteered\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/activitylog/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"activitylog",
+												"update"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "54b5468d-492a-46d1-887f-8695e3fa34a9",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"guid\": \"<uuid>\",\n  \"hoursVolunteered\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"id": "a75d7cd5-30ba-4d05-b34a-e12ae0d5e9a1",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"guid\": \"<uuid>\",\n  \"hoursVolunteered\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"update"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "f8363176-000f-4e4a-b50d-850b1d6668cc",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"guid\": \"<uuid>\",\n  \"hoursVolunteered\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"update"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "4008c136-8d9b-48c0-a227-c4778ffcfbac"
+						},
+						{
+							"name": "delete",
+							"item": [
+								{
+									"name": "/api/activitylog/delete",
+									"id": "599218a2-fd22-4d20-8d8c-f70cc44be721",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/activitylog/delete?activityLogGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"activitylog",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "activityLogGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "de86efd9-35a4-403d-be62-54a72cf9248c",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/delete?activityLogGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "activityLogGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "1c56443a-7fc8-42ea-a32f-90716a05e53d",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/delete?activityLogGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "activityLogGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "754bbd3b-a464-483b-819e-8f3a8ab90d4f",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/delete?activityLogGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "activityLogGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "c328dab0-09aa-4352-abc4-9515caecf760",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/activitylog/delete?activityLogGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"activitylog",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "activityLogGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "1c537d30-ffda-4b5e-ae70-1c4fa8f79706"
+						}
+					],
+					"id": "293f15a5-fc64-44c5-bb8d-93635c865cd5"
+				},
+				{
+					"name": "event",
+					"item": [
+						{
+							"name": "searchevents",
+							"item": [
+								{
+									"name": "/api/event/searchevents",
+									"id": "6556930d-1613-46e8-94e7-015c60ca24eb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/event/searchevents",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"event",
+												"searchevents"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "3206d54c-d2f4-4c41-9963-fb7534135631",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/searchevents",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"searchevents"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"guid\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"startdate\": \"<dateTime>\",\n    \"enddate\": \"<dateTime>\",\n    \"address\": \"<string>\",\n    \"categoryName\": \"<string>\"\n  },\n  {\n    \"guid\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"startdate\": \"<dateTime>\",\n    \"enddate\": \"<dateTime>\",\n    \"address\": \"<string>\",\n    \"categoryName\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "6f952bb9-9d7b-477c-9846-34e4fb79b7b6",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/searchevents",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"searchevents"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "59592566-5023-49fc-8d93-1fcdf4753703",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/searchevents",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"searchevents"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "411c24fd-959d-4a29-81eb-0743f98f1c1a"
+						},
+						{
+							"name": "get",
+							"item": [
+								{
+									"name": "/api/event/get",
+									"id": "6474c795-7fea-44d3-85ca-00d7349241f1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/event/get?guid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"event",
+												"get"
+											],
+											"query": [
+												{
+													"key": "guid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "d3ea9431-a1b7-4f17-86a0-ecadc272d1ec",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/get?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"get"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"guid\": \"<uuid>\",\n  \"organizationGuid\": \"<uuid>\",\n  \"organizationName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\",\n  \"categoryName\": \"<string>\"\n}"
+										},
+										{
+											"id": "bb3ec596-7a6e-4709-a86a-1728bd4d85ba",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/get?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"get"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "c68cfb57-1ca4-4c26-880b-7e1941dd3c50",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/get?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"get"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "58a08302-e691-4ff8-8112-55c73921ba27"
+						},
+						{
+							"name": "create",
+							"item": [
+								{
+									"name": "/api/event/create",
+									"id": "4f550904-60bd-4182-8f61-f667398d34e2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"categoryId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"organizationGuid\": \"<uuid>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/event/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"event",
+												"create"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "1cb214cf-0537-473a-9ad8-ba65c4ea1a76",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"categoryId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"organizationGuid\": \"<uuid>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/event/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "ad4468af-0529-4d30-b1fc-fb0151395d74",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"categoryId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"organizationGuid\": \"<uuid>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/event/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"create"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "8febd084-b2c7-49c3-92ab-ea75b7359729"
+						},
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "/api/event/update",
+									"id": "6ed72851-2437-4400-9f7a-2d5b00c9966f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"categoryId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/event/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"event",
+												"update"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "ab57a216-ee86-4723-971a-78644ecf5294",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"categoryId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/event/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"id": "4f039f70-eda1-4de5-87a6-e15088c32ec6",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"categoryId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/event/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"update"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "67c5c306-ed98-4992-9cd1-cf2cc51f7b9e",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"categoryId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"description\": \"<string>\",\n  \"startdate\": \"<dateTime>\",\n  \"enddate\": \"<dateTime>\",\n  \"capacity\": \"<integer>\",\n  \"websiteurl\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/event/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"update"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							],
+							"id": "9919d945-d988-4efe-8067-4d18448a07f2"
+						},
+						{
+							"name": "delete",
+							"item": [
+								{
+									"name": "/api/event/delete",
+									"id": "3de4a0e7-69fa-4b9e-905e-8e2472d18502",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/event/delete?guid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"event",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "guid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "dd09cd19-3193-45c0-8b7a-c6d48c84f39e",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"id": "f85e0f78-849b-4f68-984f-a658f3018bb8",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\"\n}"
+										},
+										{
+											"id": "3bd87652-74ff-4f9e-973d-670cf3f25510",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "2d5ba2b7-440b-48a4-b1f5-0eb78ef23d3a",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "6c1b7395-1799-4569-83da-58cbcc8b1b10"
+						},
+						{
+							"name": "getcategories",
+							"item": [
+								{
+									"name": "/api/event/getcategories",
+									"id": "8ab283db-c0c0-4c33-85f7-ffec45fceb29",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/event/getcategories",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"event",
+												"getcategories"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "971fc2d0-1ec2-4272-9e90-2b4d4ba15539",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/event/getcategories",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"event",
+														"getcategories"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"categoryId\": \"<integer>\",\n    \"categoryName\": \"<string>\"\n  },\n  {\n    \"categoryId\": \"<integer>\",\n    \"categoryName\": \"<string>\"\n  }\n]"
+										}
+									]
+								}
+							],
+							"id": "e0eb6708-f55d-4f40-92b3-2cbf1701b5be"
+						}
+					],
+					"id": "03d99af5-2a4c-42f7-af5e-190c15b401b7"
+				},
+				{
+					"name": "member",
+					"item": [
+						{
+							"name": "getusermemberships",
+							"item": [
+								{
+									"name": "/api/member/getusermemberships",
+									"id": "322406d5-abd6-45b5-90c4-e0c04614b9e8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/member/getusermemberships?userGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"member",
+												"getusermemberships"
+											],
+											"query": [
+												{
+													"key": "userGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "46cc56b7-4d7e-469d-86b7-35c847bf713a",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getusermemberships?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getusermemberships"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationGuid\": \"<uuid>\",\n    \"organizationName\": \"<string>\",\n    \"roleName\": \"<string>\"\n  },\n  {\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationGuid\": \"<uuid>\",\n    \"organizationName\": \"<string>\",\n    \"roleName\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "d9c35453-c84d-4a8f-89b1-924ee252f76d",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getusermemberships?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getusermemberships"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "8e30b32e-2f3d-4095-badd-080a03023df9",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getusermemberships?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getusermemberships"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "62fc3200-6a9c-4e2c-a467-93d6923f084d"
+						},
+						{
+							"name": "getall",
+							"item": [
+								{
+									"name": "/api/member/getall",
+									"id": "e0a56add-fb5c-4674-b594-336a6b1cefe4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/member/getall",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"member",
+												"getall"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "1032091d-b2f9-4cb0-aa63-01083cbd7863",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getall"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationGuid\": \"<uuid>\",\n    \"organizationName\": \"<string>\",\n    \"roleName\": \"<string>\"\n  },\n  {\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationGuid\": \"<uuid>\",\n    \"organizationName\": \"<string>\",\n    \"roleName\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "3aeac0fd-29ea-4ff0-90ea-72974372f93f",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getall"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "9dce0d14-dbf0-46fc-a232-3b4e73dbca32"
+						},
+						{
+							"name": "getorganizationmembers",
+							"item": [
+								{
+									"name": "/api/member/getorganizationmembers",
+									"id": "2ced9b23-9a17-4ebf-932f-5cb4359b5687",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/member/getorganizationmembers?organizationGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"member",
+												"getorganizationmembers"
+											],
+											"query": [
+												{
+													"key": "organizationGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "c458ef35-f005-488b-b6d7-511dc1647d4f",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getorganizationmembers?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getorganizationmembers"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationGuid\": \"<uuid>\",\n    \"organizationName\": \"<string>\",\n    \"roleName\": \"<string>\"\n  },\n  {\n    \"userGuid\": \"<uuid>\",\n    \"userName\": \"<string>\",\n    \"organizationGuid\": \"<uuid>\",\n    \"organizationName\": \"<string>\",\n    \"roleName\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "fab60444-1960-4d63-958d-5f93db361fb3",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getorganizationmembers?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getorganizationmembers"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "c3d9378f-f37c-40ff-a14f-92b90a9c2b22",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getorganizationmembers?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getorganizationmembers"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "4ae22f1d-9c56-454a-8741-71f465bebfa7"
+						},
+						{
+							"name": "create",
+							"item": [
+								{
+									"name": "/api/member/create",
+									"id": "24c4dbcc-f187-4190-8856-ca97673129b3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"organizationGuid\": \"<uuid>\",\n  \"roleId\": \"<integer>\",\n  \"userGuid\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/member/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"member",
+												"create"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "e2b4cc33-908e-4c6f-a464-7a46729a47c2",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"organizationGuid\": \"<uuid>\",\n  \"roleId\": \"<integer>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/member/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "9be22eb1-27cc-4c89-bc8b-bf42e146613c",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"organizationGuid\": \"<uuid>\",\n  \"roleId\": \"<integer>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/member/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"create"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "e272a14e-7a7c-4f2e-92e5-298aa2ad80f7",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"organizationGuid\": \"<uuid>\",\n  \"roleId\": \"<integer>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/member/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"create"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "94f372e2-beed-4b3a-83ec-7c3d367cff09"
+						},
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "/api/member/update",
+									"id": "22cfbd75-0f57-4a94-b02e-37cbf1c85579",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"guid\": \"<uuid>\",\n  \"roleId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/member/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"member",
+												"update"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "35a1e48c-c60a-4f3f-837a-1446f02b12c4",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"guid\": \"<uuid>\",\n  \"roleId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/member/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "3b0bdb47-e8d5-475a-960e-273ee7384014",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"guid\": \"<uuid>\",\n  \"roleId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/member/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"update"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "f3e72b8f-d64e-4a58-9539-1fa257e120c7",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"guid\": \"<uuid>\",\n  \"roleId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/member/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"update"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "028b2a2e-3722-4afc-92ef-1f8e29caaae5"
+						},
+						{
+							"name": "delete",
+							"item": [
+								{
+									"name": "/api/member/delete",
+									"id": "d978eafd-8fa4-48e3-9efc-9df3b0be9029",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/member/delete?guid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"member",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "guid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b0ba9c7c-5477-46a1-81db-0dc42459889f",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "e61f5e08-7bb4-4421-a0f4-138017b6cbba",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "e484af36-c6f1-4df9-bfbc-3d3c93d1c8ed",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "7440fb32-1039-4b20-b7d1-9dade03c0ad7",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/delete?guid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "guid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "bef60f4c-9bec-4e9f-a2e8-fe351a01099e"
+						},
+						{
+							"name": "getroles",
+							"item": [
+								{
+									"name": "/api/member/getroles",
+									"id": "50dd32ed-6117-4c81-9765-d337f311033a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/member/getroles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"member",
+												"getroles"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "677755a1-0576-41a8-a4b0-fd69c1a1b7a7",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getroles",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getroles"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"roleId\": \"<integer>\",\n    \"roleName\": \"<string>\"\n  },\n  {\n    \"roleId\": \"<integer>\",\n    \"roleName\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "d0502e35-9475-47e2-96c6-ba72fada722b",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/member/getroles",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"member",
+														"getroles"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "6c8db11d-eda7-42a5-b7e9-19e72504142b"
+						}
+					],
+					"id": "ecdd0561-dc12-46f4-8a9f-c2fac77524ec"
+				},
+				{
+					"name": "organization",
+					"item": [
+						{
+							"name": "getall",
+							"item": [
+								{
+									"name": "/api/organization/getall",
+									"id": "64eb124c-7457-4e36-ba3d-176dcb183b47",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/organization/getall",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"organization",
+												"getall"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "8774fbb8-ed72-437a-88c1-0e699cc19172",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/getall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"getall"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"guid\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"isactive\": \"<boolean>\",\n    \"isdeleted\": \"<boolean>\"\n  },\n  {\n    \"guid\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"isactive\": \"<boolean>\",\n    \"isdeleted\": \"<boolean>\"\n  }\n]"
+										},
+										{
+											"id": "95cc50ec-5e91-4724-b7d3-0169cbed3ef1",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/getall",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"getall"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "25917613-f710-4e6b-bc6c-6e62a1c414b8"
+						},
+						{
+							"name": "getevents",
+							"item": [
+								{
+									"name": "/api/organization/getevents",
+									"id": "4e1713d2-659d-4c73-9345-c3dd12584004",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/organization/getevents?organizationGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"organization",
+												"getevents"
+											],
+											"query": [
+												{
+													"key": "organizationGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "8a2fcd9f-d493-4f39-aba1-af0f4f19eeb9",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/getevents?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"getevents"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"guid\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"startdate\": \"<dateTime>\",\n    \"enddate\": \"<dateTime>\",\n    \"address\": \"<string>\",\n    \"categoryName\": \"<string>\"\n  },\n  {\n    \"guid\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"organizationName\": \"<string>\",\n    \"startdate\": \"<dateTime>\",\n    \"enddate\": \"<dateTime>\",\n    \"address\": \"<string>\",\n    \"categoryName\": \"<string>\"\n  }\n]"
+										},
+										{
+											"id": "1078982b-4a39-4181-9724-f5371d1b094a",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/getevents?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"getevents"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "c332955a-51bc-4775-ad8c-30097b3fda4b",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/getevents?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"getevents"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "3ef6ec66-37db-4a8b-8e91-5fa0752bd7f4"
+						},
+						{
+							"name": "get",
+							"item": [
+								{
+									"name": "/api/organization/get",
+									"id": "af380e21-8874-48e9-ab68-3b2f3edfbd6b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/organization/get?organizationGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"organization",
+												"get"
+											],
+											"query": [
+												{
+													"key": "organizationGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "1d9e943e-7bbb-44c6-ab49-2be99deec873",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/get?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"get"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"guid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isactive\": \"<boolean>\",\n  \"isdeleted\": \"<boolean>\"\n}"
+										},
+										{
+											"id": "caa73bd1-6960-411d-93fd-025a6a4b6a5e",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/get?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"get"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "9038ce2b-0ec1-4386-b3b6-f21d85f36189",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/get?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"get"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "6e5bc8a6-d6e0-4f6f-b040-e70cd0f7e070"
+						},
+						{
+							"name": "create",
+							"item": [
+								{
+									"name": "/api/organization/create",
+									"id": "e3dae09b-19fb-4b78-bba3-b32a0740bb17",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"userGuid\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/organization/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"organization",
+												"create"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "4db939a2-0c5f-4f06-8c3e-717fab40b141",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "e39259f6-4db1-44c1-bbe8-da3ff7be9f9b",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"create"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "ce1440dd-6e36-4a29-aa37-971ee705ae4e",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"userGuid\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"create"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "2385c79a-2a22-4842-8715-2dc859181f23"
+						},
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "/api/organization/update",
+									"id": "6cb92341-bb21-4bff-841c-0e125c94942d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"description\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/organization/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"organization",
+												"update"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "e97c26d1-3dd9-4099-90cc-593ae54eded4",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"description\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "3934a65a-2ab6-4fd2-91ac-dbc4fee122d5",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"description\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"update"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "5f214f46-971b-4881-92d2-b065291ab4d0",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"description\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"update"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "aa114992-9496-4b00-bd5c-6faf9df549bf"
+						},
+						{
+							"name": "delete",
+							"item": [
+								{
+									"name": "/api/organization/delete",
+									"id": "fd81c4a3-1dc9-403e-be6e-b086568f342a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/organization/delete?organizationGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"organization",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "organizationGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "4b267682-fb5c-4ba4-9ebb-48af309a221b",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/delete?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "fa0d2770-8629-4a39-a166-026b06045be7",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/delete?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "559c3d87-975e-48bf-a7d7-8827b1a34bdf",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/delete?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "3f0e3ddb-1907-4b6f-b5e0-f1d6c1381101",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/organization/delete?organizationGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"organization",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "organizationGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "8edfd1e5-9490-4290-86b1-bf133ffa41de"
+						}
+					],
+					"id": "4ab69985-25e9-4b52-9314-3123a204897e"
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "auth",
+							"item": [
+								{
+									"name": "/api/user/auth",
+									"id": "2995f55a-1b19-46c2-b62d-d2f15605485e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/auth",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"auth"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "5bb61b91-6be9-4e3c-81c0-d58cd8d891d7",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/auth",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"auth"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"id": "e68770aa-e21d-4c88-8237-a2e5cdc55a9a",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/auth",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"auth"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "0cc5a473-b3b6-4c56-9336-0942329d9a38",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/auth",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"auth"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "81c41966-ef25-4086-b3f3-7100987dface"
+						},
+						{
+							"name": "searchusers",
+							"item": [
+								{
+									"name": "/api/user/searchusers",
+									"id": "6b85c5e7-b1e8-422f-96ec-cb295312eb01",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/searchusers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"searchusers"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "3dd8fa74-24d5-4276-976f-8d736f16601b",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/searchusers",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"searchusers"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"guid\": \"<uuid>\",\n    \"email\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"initial\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"secondLastName\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"resetPassword\": \"<boolean>\",\n    \"isDeleted\": \"<boolean>\",\n    \"isActive\": \"<boolean>\"\n  },\n  {\n    \"guid\": \"<uuid>\",\n    \"email\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"initial\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"secondLastName\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"resetPassword\": \"<boolean>\",\n    \"isDeleted\": \"<boolean>\",\n    \"isActive\": \"<boolean>\"\n  }\n]"
+										},
+										{
+											"id": "4ed8dc54-1556-45f0-9dfa-b3b45d50b1ea",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/searchusers",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"searchusers"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "ae880c0f-370b-461f-b894-f74ff502c065"
+						},
+						{
+							"name": "get",
+							"item": [
+								{
+									"name": "/api/user/get",
+									"id": "63924c21-6649-4ff4-836d-e1a5076da5ff",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/get?userGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"get"
+											],
+											"query": [
+												{
+													"key": "userGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "c97f3cfd-8aea-469f-8cb1-f7ba10aa3a23",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/get?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"get"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"guid\": \"<uuid>\",\n  \"email\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"initial\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"resetPassword\": \"<boolean>\",\n  \"isDeleted\": \"<boolean>\",\n  \"isActive\": \"<boolean>\"\n}"
+										},
+										{
+											"id": "4f9b8016-5ddf-4746-ab82-d861136b7a7e",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/get?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"get"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "26d8d82c-e3e9-4571-8b04-5eb9f83c35ab",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/get?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"get"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "83dd8569-0310-4e39-bb6e-326779661283"
+						},
+						{
+							"name": "create",
+							"item": [
+								{
+									"name": "/api/user/create",
+									"id": "2760d3ff-59b4-4644-bd65-6dfbd37ef8d4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"R3g@Z&%v\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"create"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "91bd31ee-8106-4b47-9d60-5972ac0a0c84",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"R3g@Z&%v\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "585d4867-4191-437b-98af-6da1d7405425",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"R3g@Z&%v\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"create"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "6ff3f2ae-8650-4348-b0bb-512ab06bc80e",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"R3g@Z&%v\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"create"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "ae8751a2-f245-4674-9fc0-2af1c8cf1185"
+						},
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "/api/user/update",
+									"id": "f4cc4448-881e-4d24-9f1c-187b5e75ee1f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"lastName\": \"<string>\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"update"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "ab992353-a40c-45aa-a9f8-480e6de4ce14",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"lastName\": \"<string>\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "ddb67fa2-dc04-413e-b626-6f0d76d3ed81",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"lastName\": \"<string>\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"update"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "af6047b4-6b59-48ec-a2ee-1c21f1919db8",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"guid\": \"<uuid>\",\n  \"lastName\": \"<string>\",\n  \"initial\": \"<string>\",\n  \"secondLastName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"update"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "443c13ed-aa70-4360-8edf-6b1073240d0a"
+						},
+						{
+							"name": "delete",
+							"item": [
+								{
+									"name": "/api/user/delete",
+									"id": "6a253a40-09d6-4e65-9227-f09bf10a36fd",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/delete?userGuid=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "userGuid",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "4212c900-999f-413c-9d90-a168a84a9231",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/delete?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "600e83de-0e39-4ee9-9527-42a44b97edee",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/delete?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "c96b0ca8-ff8c-4cb9-bdfb-6c438d5a2426",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/delete?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "d6770a5e-a086-47fd-98b7-350f8fe84395",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/delete?userGuid=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "userGuid",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "f4ffe7ea-a7c9-498e-a9d0-80ef4d882b1b"
+						},
+						{
+							"name": "forgotpassword",
+							"item": [
+								{
+									"name": "/api/user/forgotpassword",
+									"id": "6a55343e-511e-4a0c-865f-9d9f3eb3217a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/forgotpassword",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"forgotpassword"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "0dc85614-6205-4380-b631-36c3266e4cbc",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/forgotpassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"forgotpassword"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "8923301e-bfdf-4965-9311-6518b07d528b",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/forgotpassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"forgotpassword"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "79b1e360-6e1d-471d-afb6-dcf69f4cdc00",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/forgotpassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"forgotpassword"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "3fd3c9dc-a248-49d5-bfc5-ba1787931446",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/forgotpassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"forgotpassword"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "685248ff-4147-4285-8acc-fadafd8db9d3"
+						},
+						{
+							"name": "changepassword",
+							"item": [
+								{
+									"name": "/api/user/changepassword",
+									"id": "ef976b8c-1bae-4063-aa79-eb420307f7c7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"newPassword\": \" \",\n  \"oldPassword\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/changepassword",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"changepassword"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "cdeae2dd-8fc2-444a-873c-93f101d7a1e0",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"newPassword\": \" \",\n  \"oldPassword\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/changepassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"changepassword"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"successMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "c908bb7b-19cf-4e8d-bee0-312b7e1aebdd",
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"newPassword\": \" \",\n  \"oldPassword\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/changepassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"changepassword"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "ae84a3a4-ae2b-4c92-a3f2-3d5886a1edaf",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"newPassword\": \" \",\n  \"oldPassword\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/changepassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"changepassword"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										},
+										{
+											"id": "55733d52-adcf-4a48-9faf-ce0fedb9febf",
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"newPassword\": \" \",\n  \"oldPassword\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/changepassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"changepassword"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errorCode\": \"<string>\",\n  \"errorMessage\": \"<string>\"\n}"
+										}
+									]
+								}
+							],
+							"id": "76257fd0-fb65-4f6a-8eb2-a7ca6ff53bba"
+						}
+					],
+					"id": "daf1c544-7499-465d-a6c5-4fd7a9362c7d"
+				}
+			],
+			"id": "80a2beea-67be-4f07-ad42-cc9cca3f4d0a"
+		}
+	],
+	"variable": [
+		{
+			"id": "0bc752a3-b3ba-4303-9daf-91b9887df46b",
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
